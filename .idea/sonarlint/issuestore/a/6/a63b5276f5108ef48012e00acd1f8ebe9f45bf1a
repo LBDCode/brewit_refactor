@@ -1,0 +1,21 @@
+
+zpython:S117$"\Rename this local variable "recipeBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(ûÑæÇ8êõƒ×¦-
+~python:S117d"`Rename this local variable "directionsBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.( èŠÝ8ò‡ÛØ¦-
+wpython:S1542"SRename function "scrapeSite" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(ª¤–Ôøÿÿÿÿ8êõƒ×¦-
+upython:S117,"RRename this parameter "recURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö£Ûªûÿÿÿÿ8êõƒ×¦-
+=python:S125"Remove this commented out code.(·±¸Ë8ýÓ˜Ú¦-
+~python:S117V"[Rename this local variable "specsBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(È¸Á§ÿÿÿÿÿ8êõƒ×¦-
+~python:S117f"`Rename this local variable "finalDirections" to match the regular expression ^[_a-z][a-z0-9_]*$.(°¬Ûž8ò‡ÛØ¦-
+}python:S117O"_Rename this local variable "ingredientList" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÔÏÅ‹8êõƒ×¦-
+wpython:S1542,"SRename function "checkAvail" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(ö£Ûªûÿÿÿÿ8êõƒ×¦-
+„python:S117K"aRename this local variable "ingredientsBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÚÑŽúÿÿÿÿ8êõƒ×¦-
+~python:S1542!"ZRename function "scrapePageRecipes" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(Äé¤…úÿÿÿÿ8êõƒ×¦-
+Vpython:S1481:"2Remove the unused local variable "recipeContents".(ó©ÛŒÿÿÿÿÿ8êõƒ×¦-
+‚python:S117:"_Rename this local variable "recipeContents" to match the regular expression ^[_a-z][a-z0-9_]*$.(ó©ÛŒÿÿÿÿÿ8êõƒ×¦-
+ypython:S117="[Rename this local variable "titleBlock" to match the regular expression ^[_a-z][a-z0-9_]*$.(±–†Þ8êõƒ×¦-
+Gpython:S1481["(Remove the unused local variable "iStr".(÷‹ð‚8ã¹†Ø¦-
+}python:S117>"ZRename this local variable "titleInfo" to match the regular expression ^[_a-z][a-z0-9_]*$.(¸ÖÅªùÿÿÿÿ8êõƒ×¦-
+spython:S117["URename this local variable "iStr" to match the regular expression ^[_a-z][a-z0-9_]*$.(÷‹ð‚8êõƒ×¦-
+ypython:S117W"[Rename this local variable "finalSpecs" to match the regular expression ^[_a-z][a-z0-9_]*$.(¬‰Šã8êõƒ×¦-
+vpython:S15425"RRename function "getRecipe" to match the regular expression ^[a-z_][a-z0-9_]{2,}$.(ó…áîüÿÿÿÿ8êõƒ×¦-
+zpython:S117"WRename this local variable "newURL" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÿ×°Ñþÿÿÿÿ8êõƒ×¦-
