@@ -1,6 +1,7 @@
 from common.database import ConnectionFromPool
 import json
 from itertools import groupby
+import random
 
 class Recipe:
     def __init__(self, title, type, image_url, beer_url, batch, original_gravity, final_gravity, abv, ibu, directions, recipe_id):
@@ -58,7 +59,11 @@ class Recipe:
     @classmethod
     def find_all(cls):
         with ConnectionFromPool() as cursor:
-                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, recipes.directions, ingredients.ingredient FROM recipes, ingredients WHERE recipes.recipe_id = ingredients.recipe_id")
+                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                               "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                               "recipes.directions, ingredients.ingredient "
+                               "FROM recipes, ingredients "
+                               "WHERE recipes.recipe_id = ingredients.recipe_id")
                 columns = [desc[0] for desc in cursor.description]
                 rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
                 result = Recipe.jsonify_data(rows)
@@ -66,9 +71,17 @@ class Recipe:
                 return json.dumps(result)
 
     @classmethod
-    def find_random(cls, num_resuls):
+    def find_random(cls, num_results):
+        rand_recipes = []
+        for x in range(num_results):
+            rand_recipes.append(random.randint(1, 370))
         with ConnectionFromPool() as cursor:
-                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, recipes.directions, ingredients.ingredient FROM recipes, ingredients WHERE recipes.recipe_id = ingredients.recipe_id")
+                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                               "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                               "recipes.directions, ingredients.ingredient "
+                               "FROM recipes, ingredients "
+                               "WHERE recipes.recipe_id = ingredients.recipe_id "
+                               "AND recipes.recipe_id IN %s", (*rand_recipes,))
                 columns = [desc[0] for desc in cursor.description]
                 rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
                 result = Recipe.jsonify_data(rows)
