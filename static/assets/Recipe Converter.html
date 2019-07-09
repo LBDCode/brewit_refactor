@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Recipe Converter</title>
+    <script src="./Recipe Converter_files/bootstrap.min.js.download" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Recipe Converter_files/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Recipe Converter_files/bootstrap.min.css">
+    <script src="./Recipe Converter_files/jquery.min.js.download"></script>
+
+    <link rel="stylesheet" href="./Recipe Converter_files/style.css">
+    <script src="./Recipe Converter_files/ag-grid-community.min.noStyle.js.download"></script>
+    <link rel="stylesheet" href="./Recipe Converter_files/ag-grid.css">
+    <link rel="stylesheet" href="./Recipe Converter_files/ag-theme-balham.css">
+</head>
+<body cz-shortcut-listen="true"><div>
+
+<div class="container">
+  <nav class="navbar navbar-light navbar-expand-md">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse dual-nav order-1 order-md-0">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#">Log in / Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#"></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse dual-nav order-2 order-md-1 justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#"> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#"> </a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="http://127.0.0.1:5000/" class="navbar-brand mx-auto order-0 order-md-2 p-2 custom-brand">brewIt</a>
+
+    <div class="navbar-collapse collapse dual-nav order-3 order-md-3">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#"> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:5000/#"> </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse dual-nav order-4 order-md-4 justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                 <a class="nav-link" href="http://127.0.0.1:5000/#">Advanced search</a>
+            </li>
+        </ul>
+    </div>
+
+    </nav>
+
+    
+
+    <section class="find-banner">
+       <div class="jumbotron jumbotron-fluid find-beer">
+          <div class="container search-block">
+              <h1>Find a Recipe</h1>
+            <div class="search-form input-group mb-3">
+              <input type="text" class="search-box  form-control" placeholder="Find a Recipe" aria-label="Recipient&#39;s username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn search-button" type="button" id="button-addon2">Search</button>
+              </div>
+            </div>
+            <br>
+            <a class="search-link" href="http://127.0.0.1:5000/#">ADVANCED SEARCH   <i class="fas fa-caret-right src-icon"></i></a>
+          </div>
+        </div>
+    </section>
+
+    <section class="style-list">
+        <div class="col-12">
+            <hr>
+            <h2>Browse by Style</h2>
+
+            <div class="beer-styles">
+                <a href="http://127.0.0.1:5000/browse"><img class="style-img" src="./Recipe Converter_files/brown.jpg"></a>
+                <a href="http://127.0.0.1:5000/browse"><img class="style-img" src="./Recipe Converter_files/brown.jpg"></a>
+                <a href="http://127.0.0.1:5000/browse"><img class="style-img" src="./Recipe Converter_files/brown.jpg"></a>
+                <a href="http://127.0.0.1:5000/browse"><img class="style-img" src="./Recipe Converter_files/brown.jpg"></a>
+                <a href="http://127.0.0.1:5000/browse"><img class="style-img" src="./Recipe Converter_files/brown.jpg"></a>
+            </div>
+
+            <hr>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="jumbostron jumbotron-fluid jumbo-browse">
+            <div class="row">
+                <div class="browse-text col-6">
+                    <h3 class="browse-tagline">Browse some of our most popular homebrew recipes - there's something for everyone.</h3>
+                </div>
+                <div class="col-6 pannel-browse">
+                    <h1 class="browse-header">Get inspired.</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container beer-main">
+            <div class="row">
+                <h2 class="recipe-header" style="
+    max-height: 150px;
+">Browse Recipes</h2>
+            <div class="card-columns">
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c72fe412514970a9c99a132"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">You Can Do It! Dunkel</h5>
+                        <p class="card-text card-descrip">Authentic German malts give this dark amber lager a restrained nutty roast character with a long, dry finish. The spicy Perle hops blend well with the bready Bavarian yeast character, making it perfect for quaffing.</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c72fff82514970dd8c578a2"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Your Father’s Mustache Lager</h5>
+                        <p class="card-text card-descrip">Renner first brewed “Your Father’s Mustache” when he began his own investigation into what is now called pre-Prohibition lager.</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c73012b2514970a986948a2"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Wormtown Brewery's Double IPA</h5>
+                        <p class="card-text card-descrip">Brewmaster Ben Roesch shared this extract recipe for his double IPA</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c73022325149718dc6c6139"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Guard The Guardians Sour</h5>
+                        <p class="card-text card-descrip">A raspberry and cherry sour that has won several awards for pro-brewer-in-planning Geoff Coleman, including Best of Show at the 2015 Colorado State Fair and a Gold Medal at the 2016 Big Beers Festival</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c7302e625149718dc6c613a"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Guard The Guardians Sour</h5>
+                        <p class="card-text card-descrip">A raspberry and cherry sour that has won several awards for pro-brewer-in-planning Geoff Coleman, including Best of Show at the 2015 Colorado State Fair and a Gold Medal at the 2016 Big Beers Festival</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c73040c25149703d4b1cf84"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Guard The Guardians Sour</h5>
+                        <p class="card-text card-descrip">A raspberry and cherry sour that has won several awards for pro-brewer-in-planning Geoff Coleman, including Best of Show at the 2015 Colorado State Fair and a Gold Medal at the 2016 Big Beers Festival</p>
+                      </div></a>
+                    </div>
+                
+                    <div class="card beer-card" style="width: 18rem;">
+                      <a class="beer-link" href="http://127.0.0.1:5000/recipe/5c7c27e32514971560d01567"><img src="./Recipe Converter_files/brown.jpg" class="card-img-top card-img" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Katie's beer</h5>
+                        <p class="card-text card-descrip">Katie's fav beer</p>
+                      </div></a>
+                    </div>
+                
+            </div>
+            </div>
+        </div>
+        <hr>
+        <p>footer goes here</p>
+        <hr>
+    </section>
+</div>
+
+<script src="./Recipe Converter_files/recipe.js.download"></script>
+    
+
+</div></body></html>

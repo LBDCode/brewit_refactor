@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% block content %}
+
+    <div class="recipe-divider">
+         <h2 class="recipe-titles">
+             <img class="recipe-logo" src="{{ url_for('static', filename='assets/logo2.png') }}">
+            {{ recipe.title}}
+         </h2>
+    </div>
+    <div class="container recipe-div">
+        <h2> Specifications </h2>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="recipe-details">
+                    <p><strong>Type:</strong> {{ recipe.type }}</p>
+                    <p><strong>IBU:</strong> {{ recipe.ibu }}</p>
+                    <p><strong>Yield:</strong>  {{ recipe.batch }} </p>
+                    <p><strong>Original Gravity:</strong>  {{ recipe.original_gravity }} </p>
+                    <p><strong>Final Gravity:</strong>  {{ recipe.final_gravity }} </p>
+                    <p><strong>ABV:</strong>  {{ recipe.abv }} </p>
+                    <!--<div><strong>Description: </strong> {{ recipe.description}} </div>-->
+                    <br>
+                </div>
+                <!--<button type="button">Copy</button>-->
+                <!--<button type="button">Personalize</button>-->
+            </div>
+            <div class="col-md-4">
+                <img class="recipe-image" src="{{ recipe.image_url }}">
+            </div>
+        </div>
+        <hr>
+
+        <div class="ingredients row">
+            <!--<div class="recipe-divider">-->
+                <h2> Ingredients </h2>
+            <!--</div>-->
+            <table class="table ingredient-grid">
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th scope="col">Ingredient</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+                <tbody id="ingred-rows">
+                    {% for ingredient in recipe.ingredients %}
+                    <tr>
+                        <td>{{ ingredient }}</td>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+            </table>
+        </div>
+        <div class="instructions">
+            <h2> Instructions </h2>
+            <hr>
+            <p class="instruction-p">{{ recipe.directions }}</p>
+        </div>
+    </div>
+
+
+<script src="{{ url_for('static', filename='js/recipe.js') }}"></script>
+
+
+{% endblock %}

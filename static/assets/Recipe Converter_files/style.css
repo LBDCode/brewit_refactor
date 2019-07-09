@@ -1,0 +1,200 @@
+body {
+    font-family: "Source Serif Pro",serif;
+}
+
+h2 {
+    color: #898c32;
+}
+
+.search-button {
+    border-radius: 5px;
+    background-color: #333333b3;
+    border-color: #333333b3;
+    color: #f1f2f2;
+}
+
+.search-button:hover {
+    color: #f1f2f2;
+}
+
+.custom-nav {
+    background-color: #ffffff;
+    width: 70px;
+}
+
+.custom-brand {
+    font-size: 48px;
+    color: #898c32!important;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.find-beer{
+    margin-top: 10px;
+    height: 400px;
+    background-image: url(../assets/grain.jpg);
+    opacity: .95;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    background-color: #f1f2f2;
+    font-family: "Source Serif Pro",serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.search-block{
+    margin-top: 50px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #21252961;
+    justify-content: center;
+    align-content: center !important;
+    text-align: center;
+}
+
+.search-form {
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    align-content: center !important;
+    max-width: 500px!important;
+}
+
+.search-box{
+    height: 40px;
+    border: none;
+    background-color: #f1f2f2;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.search-link {
+    color: #ffffff;
+    font-family: "Source Serif Pro",serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+.beer-card {
+    height:380px;
+    max-width: 250px;
+    font-size: 14px;
+}
+
+.beer-link {
+    color: black;
+}
+
+.card-descrip {
+    font-size: 14px;
+    line-height: 1;
+    text-align: left;
+}
+
+.style-list {
+    margin-top: 40px;
+    background-color:#33333305;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    padding: 15px;
+}
+
+.beer-styles {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    float: none;
+}
+
+.main-content {
+    margin: 40px 0;
+    justify-content: center;
+    text-align: center;
+    align-content: center !important;
+}
+
+.beer-main {
+    margin:100px 0 50px 0;
+    padding: 15px;
+    box-shadow:
+        0 0 0 2px hsl(0, 0%, 80%);
+}
+
+.recipe-header {
+    position: relative;
+    top: -40px;
+    left: calc(42%);
+    text-align: center;
+    /* align-items: center; */
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #898c32;
+    font-size: 24px;
+}
+
+.jumbo-browse {
+    padding: 15px;
+    height: 300px;
+}
+
+.browse-header {
+   font-size: 56px;
+    text-align: center;
+    /* background-color: #2222227d; */
+    margin-top: 200px;
+    color: #fff;
+}
+
+.browse-tagline {
+    text-align: left;
+    margin-top: 120px;
+    font-size: 22px;
+    color: grey;
+}
+
+.browse-text{
+    border-right: 1.5px solid rgba(0,0,0,.1);
+}
+
+.pannel-browse {
+    padding: 3px;
+    overflow: hidden;
+    height: 300px;
+    background-image: url(../assets/beer2.jpg);
+    opacity: .95;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    font-family: "Source Serif Pro",serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.style-img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: 20px 40px;
+    display: inline-block;
+    float: none;
+}
+
+.recipe-div{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    max-width: 75%;
+    line-height: 1;
+}

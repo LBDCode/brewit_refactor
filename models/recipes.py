@@ -72,19 +72,94 @@ class Recipe:
 
     @classmethod
     def find_random(cls, num_results):
+        max_resuts = 20
+        if num_results > max_resuts:
+            num_results = max_resuts
+
         rand_recipes = []
         for x in range(num_results):
             rand_recipes.append(random.randint(1, 370))
+        rand_tuple = tuple(rand_recipes)
         with ConnectionFromPool() as cursor:
                 cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
                                "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
                                "recipes.directions, ingredients.ingredient "
                                "FROM recipes, ingredients "
                                "WHERE recipes.recipe_id = ingredients.recipe_id "
-                               "AND recipes.recipe_id IN %s", (*rand_recipes,))
+                               "AND recipes.recipe_id IN %s" % (rand_tuple,))
+                columns = [desc[0] for desc in cursor.description]
+                rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+                result = Recipe.jsonify_data(rows)
+
+                return result
+
+    @classmethod
+    def find_type(cls, beer_type):
+        beer_type = beer_type.replace("+", " ")
+        beer_type = '%' + beer_type + '%'
+        with ConnectionFromPool() as cursor:
+                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                               "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                               "recipes.directions, ingredients.ingredient "
+                               "FROM recipes, ingredients "
+                               "WHERE recipes.recipe_id = ingredients.recipe_id "
+                               "AND LOWER(recipes.type) LIKE LOWER(%s)", (beer_type,))
+                columns = [desc[0] for desc in cursor.description]
+                rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+                result = Recipe.jsonify_data(rows)
+
+                return json.dumps(result)
+    @classmethod
+    def find_id(cls, id):
+        with ConnectionFromPool() as cursor:
+                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                               "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                               "recipes.directions, ingredients.ingredient "
+                               "FROM recipes, ingredients "
+                               "WHERE recipes.recipe_id = ingredients.recipe_id "
+                               "AND recipes.recipe_id = %s" % (id,))
+                columns = [desc[0] for desc in cursor.description]
+                rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+                result = Recipe.jsonify_data(rows)
+
+                return result
+
+    @classmethod
+    def find_name(cls, name):
+        name = name.replace("+", " ")
+        name = '%' + name + '%'
+        with ConnectionFromPool() as cursor:
+                cursor.execute("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                               "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                               "recipes.directions, ingredients.ingredient "
+                               "FROM recipes, ingredients "
+                               "WHERE recipes.recipe_id = ingredients.recipe_id "
+                               "AND LOWER(recipes.title) LIKE LOWER(%s)", (name,))
                 columns = [desc[0] for desc in cursor.description]
                 rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
                 result = Recipe.jsonify_data(rows)
 
                 return json.dumps(result)
 
+    @classmethod
+    def general_query(cls, q):
+        col = q[0].replace('+', ' ')
+        col = 'recipes.' + col
+        search = q[1].replace("+", ' ')
+        search = '%' + search + '%'
+        query = "SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, " \
+                "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, " \
+                "recipes.directions, ingredients.ingredient " \
+                "FROM recipes, ingredients "\
+                "WHERE recipes.recipe_id = ingredients.recipe_id "
+        query = query + "AND LOWER(" + col
+        query = query + ") LIKE LOWER("
+        query = query + "'" + search + "')"
+        print(col, search)
+        with ConnectionFromPool() as cursor:
+                cursor.execute(query)
+                columns = [desc[0] for desc in cursor.description]
+                rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+                result = Recipe.jsonify_data(rows)
+
+                return json.dumps(result)
