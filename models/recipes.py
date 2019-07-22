@@ -138,8 +138,22 @@ class Recipe:
                 columns = [desc[0] for desc in cursor.description]
                 rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
                 result = Recipe.jsonify_data(rows)
+                return result
 
-                return json.dumps(result)
+    @classmethod
+    def find_generic(cls, query, params):
+        q = ("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+             "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+             "recipes.directions, ingredients.ingredient "
+             "FROM recipes, ingredients ")
+        q += query
+        with ConnectionFromPool() as cursor:
+                cursor.execute(q, params)
+                columns = [desc[0] for desc in cursor.description]
+                rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+                result = Recipe.jsonify_data(rows)
+                return result
+
 
     @classmethod
     def general_query(cls, q):
@@ -147,11 +161,11 @@ class Recipe:
         col = 'recipes.' + col
         search = q[1].replace("+", ' ')
         search = '%' + search + '%'
-        query = "SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, " \
-                "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, " \
-                "recipes.directions, ingredients.ingredient " \
-                "FROM recipes, ingredients "\
-                "WHERE recipes.recipe_id = ingredients.recipe_id "
+        query = ("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
+                 "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
+                 "recipes.directions, ingredients.ingredient "
+                 "FROM recipes, ingredients "
+                 "WHERE recipes.recipe_id = ingredients.recipe_id ")
         query = query + "AND LOWER(" + col
         query = query + ") LIKE LOWER("
         query = query + "'" + search + "')"
@@ -163,3 +177,34 @@ class Recipe:
                 result = Recipe.jsonify_data(rows)
 
                 return json.dumps(result)
+
+# def endpoint():
+#     abv = request.form["abv"]
+#     ibu = request.form["ibu"]
+#     query = request.form["query"]
+#     style = request.form["style"]
+#
+#     conditions = []
+#     parameters = []
+#
+#     [("{} = ?".format(col), val) for (col, val) in (("abv", abv), ("ibu", ibu)) if val]
+#
+#
+#     if abv:
+#         conditions.append("abv = ?")
+#         parameters.append(abv)
+#
+#     if ibu:
+#         conditions.append("ibu = ?")
+#         parameters.append(ibu)
+#
+#     if style:
+#         conditions.append("style = ?")
+#         parameters.append(style)
+#
+#     s = "SELECT * FROM recipes, ingredients WHERE "
+#     s += " AND ".join(conditions)
+#
+#
+#
+#     db.session.execute(s, parameters)

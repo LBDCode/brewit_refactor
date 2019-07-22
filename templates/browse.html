@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% block content %}
+
+    <section class="search">
+       <div class="jumbotron jumbotron-fluid search-jumbo">
+            <h1>this is the search page</h1>
+        </div>
+    </section>
+
+    <h1>This is the beer grid</h1>
+    <div>
+        <div>
+            <input type="text" id="filter-text-box" placeholder="Quick search..." oninput="onFilterTextBoxChanged()"/>
+        </div>
+        <div id="myGrid" style="height: 600px;width:900px;" class="ag-theme-balham"></div>
+
+
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        // specify the columns
+        var columnDefs = [
+            {headerName: "Name", field: "title", sortable: true, filter: true },
+            {headerName: "Style", field: "type", sortable: true, filter: true },
+            {headerName: "Yield", field: "batch", sortable: true, filter: true },
+            {headerName: "IBU", field: "ibu", sortable: true, filter: "agNumberColumnFilter" },
+            {headerName: "ABV", field: "abv", sortable: true, filter: "agNumberColumnFilter" }
+        ];
+
+
+        // let the grid know which columns and what data to use
+        var gridOptions = {
+          columnDefs: columnDefs
+        };
+
+
+      fetch('/api/recipes').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        gridOptions.api.setRowData(data);
+      })
+
+
+
+    function onFilterTextBoxChanged() {
+        gridOptions.api.setQuickFilter(document.getElementById('filter-text-box').value);
+    }
+
+    // setup the grid after the page has finished loading
+    document.addEventListener('DOMContentLoaded', function() {
+        var gridDiv = document.querySelector('#myGrid');
+        new agGrid.Grid(gridDiv, gridOptions);
+    });
+
+    </script>
+
+
+{% endblock %}

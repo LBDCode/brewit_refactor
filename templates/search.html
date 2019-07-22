@@ -1,0 +1,83 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+
+<section class="search">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="input-group mb-3">
+                <input type="text" class="search-box  form-control" placeholder="Find a Recipe" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn search-button" type="button" id="button-addon2">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="filter-group">
+            <div class="btn-group">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Style
+              </button>
+              <div class="dropdown-menu">
+                ...
+              </div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                IBU
+              </button>
+              <div class="dropdown-menu">
+                ...
+              </div>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ABV
+              </button>
+              <div class="dropdown-menu">
+                ...
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="search">
+    <div class="jumbotron">
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            {{ form.query }}
+            {{ form.style }}
+            {{ form.abv }}
+            {{ form.ibu }}
+            <input type="submit", value="Submit">
+        </form>
+    </div>
+</section>
+
+<section class="container results-main">
+
+    <div class="row">
+        <h2 class="recipe-header">Search Results</h2>
+    </div>
+    <div class="row recipe-cards">
+        {% for recipe in recipes %}
+            <div class="card beer-card">
+                <a class="beer-link" href="/recipe/{{ recipe.recipe_id }}">
+                    <img src="{{ recipe.image_url }}" class="card-img-top card-img" alt="...">
+                <div class="card-body card-descrip">
+                    <h6 class="card-text card-type">{{ recipe.type}}</h6>
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                </div>
+                <img class="card-logo" src="{{ url_for('static', filename='assets/logo2.png') }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}
