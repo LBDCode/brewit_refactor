@@ -21,10 +21,10 @@ class Recipe:
     # def __repr__(self):
     #      return "<Recipe {}>".format(self.title)
 
-    def save_to_db(self):
-        with ConnectionFromPool() as cursor:
-                cursor.execute("INSERT INTO recipes(title, type, image_url, beer_url, batch, original_gravity, final_gravity, abv, ibu, directions) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                               (self.title, self.type, self.image_url, self.beer_url, self.batch, self.original_gravity, self.final_gravity, self.abv, self.ibu, self.directions))
+    # def save_to_db(self):
+    #     with ConnectionFromPool() as cursor:
+    #             cursor.execute("INSERT INTO recipes(title, type, image_url, beer_url, batch, original_gravity, final_gravity, abv, ibu, directions) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+    #                            (self.title, self.type, self.image_url, self.beer_url, self.batch, self.original_gravity, self.final_gravity, self.abv, self.ibu, self.directions))
 
 
     @staticmethod
@@ -147,6 +147,8 @@ class Recipe:
              "recipes.directions, ingredients.ingredient "
              "FROM recipes, ingredients ")
         q += query
+        # q += " LIMIT 40"
+        print(q)
         with ConnectionFromPool() as cursor:
                 cursor.execute(q, params)
                 columns = [desc[0] for desc in cursor.description]

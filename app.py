@@ -1,6 +1,6 @@
 from common.database import Database
 from models.recipes import Recipe
-from models.forms import SearchForm
+from models.forms import SearchForm, SimpleSearchForm, TypeForm
 from flask import Flask, render_template, request, Response, session, make_response, jsonify
 from flask_wtf import FlaskForm
 from env.config import db_config
@@ -15,8 +15,11 @@ Database.initialize(database=db_config['database'], user=db_config['user'], pass
 #home
 @app.route('/')
 def home_template():
+    styles = ['brown', 'ipa',  'amber', 'lager', 'cider', 'belgian', 'stout']
+    form = SimpleSearchForm()
+    typeForm = TypeForm()
     recipes = Recipe.find_random(12)
-    return render_template('index.html', recipes=recipes)
+    return render_template('index.html', styles=styles, form=form, typeform=typeForm, recipes=recipes)
 
 # specific recipe
 @app.route('/recipe/<string:recipe_id>')
@@ -29,58 +32,105 @@ def recipe_one(recipe_id):
 @app.route('/search', methods=["GET", "POST"])
 def search_template():
     form = SearchForm()
+    simpleForm = SimpleSearchForm()
+    typeForm = TypeForm()
     recipes = []
+    conditions = []
+    parameters = []
+    query = request.form.get("query")
+    styles = ['brown', 'ipa',  'amber', 'lager', 'cider', 'belgian', 'stout']
+
+
+    if typeForm.validate_on_submit():
+        if (form.submitAdvanced.data is False) and (simpleForm.submitSimple.data is False):
+            for style in styles:
+                if typeForm[style].data:
+                    print(style)
+                    query = style
+                    form.query.data = style
+
+            if query:
+                c = '(LOWER(recipes.title) LIKE LOWER(%s) OR LOWER(recipes.type) LIKE LOWER(%s))'
+                wildq = '%' + query + '%'
+                p = [wildq, wildq]
+                conditions.append(c)
+                for param in p:
+                    parameters.append(param)
+            q = "WHERE "
+            q += " AND ".join(conditions)
+
+            print("submitted type")
+            print(q, parameters)
+            recipes = Recipe.find_generic(q, parameters)
+
+
+
+    if simpleForm.validate_on_submit():
+        if simpleForm.submitSimple.data:
+            if query:
+                c = '(LOWER(recipes.title) LIKE LOWER(%s) OR LOWER(recipes.type) LIKE LOWER(%s))'
+                wildq = '%' + query + '%'
+                p = [wildq, wildq]
+                conditions.append(c)
+                for param in p:
+                    parameters.append(param)
+            q = "WHERE "
+            q += " AND ".join(conditions)
+
+            print(q, parameters)
+            recipes = Recipe.find_generic(q, parameters)
+
+
     if form.validate_on_submit():
-        abv = request.form["abv"]
-        ibu = request.form["ibu"]
-        query = request.form["query"]
-        style = request.form["style"]
+        if form.submitAdvanced.data:
+            abv = request.form.get("abv")
+            ibu = request.form.get("ibu")
+            query = request.form.get("query")
+            style = request.form.get("style")
 
-        conditions = []
-        parameters = []
+            if query:
+                c = '(LOWER(recipes.title) LIKE LOWER(%s) OR LOWER(recipes.type) LIKE LOWER(%s))'
+                wildq = '%' + query + '%'
+                p = [wildq, wildq]
+                conditions.append(c)
+                for param in p:
+                    parameters.append(param)
 
-        if query:
-            c = '(LOWER(recipes.title) LIKE LOWER(%s) OR LOWER(recipes.type) LIKE LOWER(%s))'
-            wildq = '%' + query + '%'
-            p = [wildq, wildq]
-            conditions.append(c)
-            for param in p:
-                parameters.append(param)
+            if abv:
+                if abv == '>10':
+                    c = 'recipes.abv > %s '
+                    p = [10]
+                else:
+                    c = 'recipes.abv BETWEEN %s AND %s'
+                    p = abv.split('-')
 
-        if abv:
-            if abv == '>10':
-                c = 'recipes.abv > %s '
-                p = [10]
-            else:
-                c = 'recipes.abv BETWEEN %s AND %s'
-                p = abv.split('-')
+                conditions.append(c)
+                for param in p:
+                    parameters.append(float(param))
 
-            conditions.append(c)
-            for param in p:
-                parameters.append(float(param))
+            if ibu:
+                if ibu == '>100':
+                    c = 'recipes.ibu > %s '
+                    p = [100]
+                else:
+                    c = 'recipes.ibu BETWEEN %s AND %s'
+                    p = ibu.split('-')
+                conditions.append(c)
+                for param in p:
+                    parameters.append(float(param))
 
-        if ibu:
-            if ibu == '>100':
-                c = 'recipes.ibu > %s '
-                p = [100]
-            else:
-                c = 'recipes.ibu BETWEEN %s AND %s'
-                p = ibu.split('-')
-            conditions.append(c)
-            for param in p:
-                parameters.append(float(param))
+            if style:
+                wilds = '%' + style + '%'
+                conditions.append("LOWER(recipes.type) LIKE LOWER(%s)")
+                parameters.append(wilds)
 
-        if style:
-            conditions.append("style = ?")
-            parameters.append(style)
+            q = "WHERE "
+            q += " AND ".join(conditions)
 
+            print("submitted advanced")
+            print(q, parameters)
+            recipes = Recipe.find_generic(q, parameters)
 
-        q = "WHERE "
-        q += " AND ".join(conditions)
-
-        print(q, parameters)
-
-        recipes = Recipe.find_generic(q, parameters)
     return render_template('search.html', form=form, recipes=recipes)
 
 #browse

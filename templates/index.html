@@ -68,13 +68,13 @@
         <div class="navbar-collapse collapse dual-nav order-4 order-md-4 justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                     <a class="nav-link" href="#">Advanced search</a>
+                     <a class="nav-link" href="/search">Advanced search</a>
                 </li>
             </ul>
         </div>
 
         </nav>
-        <hr>
+        <hr class="hr-no-margin">
         <hr>
         {% block content %}
 
@@ -82,13 +82,14 @@
            <div class="jumbotron jumbotron-fluid find-beer">
               <div class="container search-block">
                   <h1>Find a Recipe</h1>
-                  <div class="search-form input-group mb-3">
-                    <input type="text" class="search-box  form-control" placeholder="Find a Recipe" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn search-button" type="button" id="button-addon2">Search</button>
-                    </div>
-                  </div>
-                <br>
+                      <form method="POST" action="{{ url_for('search_template') }}">
+                          {{ form.csrf_token }}
+                          <div class="search-form input-group mb-3">
+                              {{ form.query(class_='search-box') }}
+                              {{ form.submitSimple(class_='input-group-append search-button') }}
+                          </div>
+                      </form>
+
                 <a class="search-link" href="/search">ADVANCED SEARCH   <i class="fas fa-caret-right src-icon"></i></a>
               </div>
             </div>
@@ -99,32 +100,19 @@
                 <h2 class="recipe-header">Browse Styles</h2>
             </div>
             <hr>
-            <div class="beer-styles">
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/brown.jpg') }}"></a>
-                    <h4 class="style-tag">brown</h4>
+            <form method="POST" action="{{ url_for('search_template') }}">
+                    {{ typeform.csrf_token }}
+                <div class="beer-styles">
+                    {% for style in styles %}
+                        <div>
+                            <img class="style-img" src="{{ url_for('static', filename='assets/' + style + '.jpg') }}">
+                            <h4 class="style-tag">{{ style }}</h4>
+                            {{ typeform[style](class_='style-overlay') }}
+                        </div>
+                    {% endfor %}
                 </div>
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/ipa.jpg') }}"></a>
-                    <h4 class="style-tag">ipa</h4>
-                </div>
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/amber.jpg') }}"></a>
-                    <h4 class="style-tag">amber</h4>
-                </div>
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/lager.jpg') }}"></a>
-                    <h4 class="style-tag">lager</h4>
-                </div>
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/stout.jpg') }}"></a>
-                    <h4 class="style-tag">stout</h4>
-                </div>
-                <div>
-                    <a href="/search"><img class="style-img" src="{{ url_for('static', filename='assets/belgian.jpg') }}"></a>
-                    <h4 class="style-tag">belgian</h4>
-                </div>
-            </div>
+            </form>
+
             <hr>
         </section>
 
@@ -158,13 +146,12 @@
                     {% endfor %}
                 </div>
             </div>
-            <hr>
-            <p>footer goes here</p>
-            <hr>
         </section>
     </div>
     </div>
     {% endblock %}
+    <hr>
+    <hr>
 
 </body>
 </html>
