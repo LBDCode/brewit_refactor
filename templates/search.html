@@ -4,63 +4,31 @@
 
 
 <section class="search">
-    <div class="jumbotron">
-        <div class="row">
-            <div class="input-group mb-3">
-                <input type="text" class="search-box  form-control" placeholder="Find a Recipe" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn search-button" type="button" id="button-addon2">Search</button>
+    <div class="jumbotron advanced-search">
+        <div class="container advanced-search-block">
+            <!--<h1>Advanced Search</h1>-->
+            <!--<h1>Find recipes by name, style, IBU and ABV</h1>-->
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <div class="row advanced-search-form">
+                    {{ form.query(class_='advanced-search-box') }}
+                    <span class="filters">
+                        {{ form.style(class_='btn btn-filter dropdown-toggle') }}
+                        {{ form.abv(class_='btn btn-filter dropdown-toggle')}}
+                        {{ form.ibu(class_='btn btn-filter dropdown-toggle') }}
+                    </span>
                 </div>
-            </div>
+
+                <div class="row">
+                    {{ form.submitAdvanced(class_='btn advanced-search-button') }}
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="filter-group">
-            <div class="btn-group">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Style
-              </button>
-              <div class="dropdown-menu">
-                ...
-              </div>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                IBU
-              </button>
-              <div class="dropdown-menu">
-                ...
-              </div>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ABV
-              </button>
-              <div class="dropdown-menu">
-                ...
-              </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="search">
-    <div class="jumbotron">
-        <form method="POST" action="">
-            {{ form.csrf_token }}
-            {{ form.query }}
-            {{ form.style }}
-            {{ form.abv }}
-            {{ form.ibu }}
-            {{ form.submitAdvanced }}
-
-        </form>
     </div>
 </section>
 
 <section class="container results-main">
-
+    <hr>
     <div class="row">
         <h2 class="recipe-header">Search Results</h2>
     </div>
