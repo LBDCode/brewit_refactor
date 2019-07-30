@@ -3,11 +3,11 @@ from models.recipes import Recipe
 from models.forms import SearchForm, SimpleSearchForm, TypeForm
 from flask import Flask, render_template, request, Response, session, make_response, jsonify
 from flask_wtf import FlaskForm
-from env.config import db_config
+from env.config import db_config, key
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'soopersecret'
+app.config['SECRET_KEY'] = key
 
 Database.initialize(database=db_config['database'], user=db_config['user'], password=db_config['password0'], host=db_config['host'])
 
