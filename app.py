@@ -25,7 +25,6 @@ def home_template():
 @app.route('/recipe/<string:recipe_id>')
 def recipe_one(recipe_id):
     recipe = Recipe.find_id(recipe_id)
-    print(recipe)
     return render_template('recipe.html', recipe=recipe[0])
 
 #search
@@ -40,12 +39,10 @@ def search_template():
     query = request.form.get("query")
     styles = ['brown', 'ipa',  'amber', 'lager', 'cider', 'belgian', 'stout']
 
-
     if typeForm.validate_on_submit():
         if (form.submitAdvanced.data is False) and (simpleForm.submitSimple.data is False):
             for style in styles:
                 if typeForm[style].data:
-                    print(style)
                     query = style
                     form.query.data = style
 
@@ -59,8 +56,6 @@ def search_template():
             q = "WHERE "
             q += " AND ".join(conditions)
 
-            print("submitted type")
-            print(q, parameters)
             recipes = Recipe.find_generic(q, parameters)
 
 
@@ -77,7 +72,6 @@ def search_template():
             q = "WHERE "
             q += " AND ".join(conditions)
 
-            print(q, parameters)
             recipes = Recipe.find_generic(q, parameters)
 
 
@@ -127,8 +121,6 @@ def search_template():
             q = "WHERE "
             q += " AND ".join(conditions)
 
-            print("submitted advanced")
-            print(q, parameters)
             recipes = Recipe.find_generic(q, parameters)
 
     return render_template('search.html', form=form, recipes=recipes)
@@ -168,8 +160,6 @@ def account_template():
 def api_search(query):
     query = query.split("search/")
     query = query[0].split("&")
-    print(query)
-    print()
     if query[0].split("=")[0] == 's':
         print(query, "this is a search")
         return render_template("api.html")

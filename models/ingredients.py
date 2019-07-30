@@ -11,10 +11,10 @@ class Ingredient:
          return "<Ingredient {}>".format(self.ingredient)
 
 
-    def save_to_db(self, title):
-        with ConnectionFromPool() as cursor:
-                cursor.execute("INSERT INTO ingredients (recipe_id, ingredient) SELECT recipe_id, %s from recipes where title = %s",
-                               (self.ingredient, title))
+    # def save_to_db(self, title):
+    #     with ConnectionFromPool() as cursor:
+    #             cursor.execute("INSERT INTO ingredients (recipe_id, ingredient) SELECT recipe_id, %s from recipes where title = %s",
+    #                            (self.ingredient, title))
 
 
     @classmethod

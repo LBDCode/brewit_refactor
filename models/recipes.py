@@ -145,10 +145,8 @@ class Recipe:
         q = ("SELECT recipes.recipe_id, recipes.title, recipes.type, recipes.image_url, recipes.beer_url, "
              "recipes.batch, recipes.original_gravity, recipes.final_gravity, recipes.abv, recipes.ibu, "
              "recipes.directions, ingredients.ingredient "
-             "FROM recipes, ingredients ")
+             "FROM recipes JOIN ingredients ON recipes.recipe_id=ingredients.recipe_id ")
         q += query
-        # q += " LIMIT 40"
-        print(q)
         with ConnectionFromPool() as cursor:
                 cursor.execute(q, params)
                 columns = [desc[0] for desc in cursor.description]
@@ -171,7 +169,6 @@ class Recipe:
         query = query + "AND LOWER(" + col
         query = query + ") LIKE LOWER("
         query = query + "'" + search + "')"
-        print(col, search)
         with ConnectionFromPool() as cursor:
                 cursor.execute(query)
                 columns = [desc[0] for desc in cursor.description]
