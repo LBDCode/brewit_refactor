@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+#  nginx:
+#    build: ./nginx_conf
+#    container_name: nginx2
+#    restart: always
+#    links:
+#      - py
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    volumes:
+#      - ./nginx_conf/nginx.conf:/etc/nginx/nginx.conf
+#      - /etc/letsencrypt/:/etc/letsencrypt/
+
+  postgres:    
+    image: postgres:10
+    expose:
+      - 5432
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PW}
+      - POSTGRES_DB=${DB_NAME}
+
+  py:
+    build: ./src
+    container_name: py
+    restart: always
+    links:
+      - postgres
+    environment:
+      - APP_NAME=brewit
+    expose:
+      - 8080
+  
+
+

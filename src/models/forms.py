@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField
+from wtforms import StringField, SelectField, SubmitField, PasswordField
+from wtforms.validators import InputRequired, Length, Email
 from markupsafe import Markup
 from wtforms.widgets import HiddenInput
 
@@ -12,7 +13,6 @@ class SearchForm(FlaskForm):
 
 class SimpleSearchForm(FlaskForm):
     query = StringField('search')
-    # submit_value = Markup('<span class="input-group-text" title="Search"></span>')
     submitSimple = SubmitField('Search')
 
 class TypeForm(FlaskForm):
@@ -24,4 +24,16 @@ class TypeForm(FlaskForm):
     cider = SubmitField('Cider')
     amber = SubmitField('Amber')
     stout = SubmitField('Stout')
+
+class SignupForm(FlaskForm):
+    email = StringField('email', validators=[InputRequired(), Email(message="invalid email")])
+    first = StringField('first name', validators=[InputRequired(), Length(min=1, max=20)])
+    last = StringField('last name', validators=[InputRequired(), Length(min=1, max=20)])
+    password = PasswordField('password', validators=[InputRequired(), Length(max=50)])
+    submitSignup = SubmitField('Signup')
+
+class LoginForm(FlaskForm):
+    email = StringField('email', validators=[InputRequired(), Email])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=6, max=80)])
+    submitLogin = SubmitField('Login')
 

@@ -1,16 +1,15 @@
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
-from models.recipes import Recipe
-from models.ingredients import Ingredient
+from recipes import Recipe
+from ingredients import Ingredient
 from common.database import Database
 import re
-
 
 
 Database.initialize(database='beer',
                     user='postgres',
                     password='tensleep9!23',
-                    host='localhost')
+                    host='postgres')
 
 # new_recipe = Recipe("test title2", "test type2", "test image url2", "test beer url2", 3, 2, 2, 2, 2, "test directions2", None)
 #

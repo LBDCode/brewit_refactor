@@ -1,10 +1,9 @@
-from common.database import Database
-from models.recipes import Recipe
-from models.forms import SearchForm, SimpleSearchForm, TypeForm
-from flask import Flask, render_template, request, Response, session, make_response, jsonify
-from flask_wtf import FlaskForm
-from env.config import db_config, key
+from src.common.database import Database
+from src.models.recipes import Recipe
+from src.models.forms import SearchForm, SimpleSearchForm, TypeForm, SignupForm, LoginForm
+from flask import Flask, render_template, request, Response
 
+from src.env2.config import db_config, key
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = key
@@ -133,7 +132,13 @@ def browse_template():
 #public API
 @app.route('/public_api')
 def public_template():
-    return render_template('api.html')
+    loginform = LoginForm()
+    if loginform.validate_on_submit():
+        email = request.form.get("email")
+        password = request.fo
+        print(email)
+
+    return render_template('api.html', form=loginform)
 
 #public API Docs
 @app.route('/public_api/docs')
@@ -141,14 +146,23 @@ def docs_template():
     return render_template('docs.html')
 
 #public API signup
-@app.route('/public_api/signup')
+@app.route('/public_api/signup', methods=["GET", "POST"])
 def signup_template():
-    return render_template('signup.html')
+    form = SignupForm()
+    if form.validate_on_submit():
+        email = request.form.get("email")
+        first = request.form.get("first")
+        print(email, first)
+    return render_template('signup.html', form=form)
 
 #public API login
 @app.route('/public_api/signin')
 def signin_template():
-    return render_template('signin.html')
+    loginform = LoginForm()
+    if loginform.validate_on_submit():
+        email = request.form.get("email")
+        print(email)
+    return render_template('signin.html', form=loginform)
 
 #public API account
 @app.route('/public_api/account')
@@ -192,4 +206,4 @@ def recipe_search(query):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port="5000")

@@ -1,4 +1,4 @@
-from common.database import ConnectionFromPool
+from src.common.database import ConnectionFromPool
 import json
 from itertools import groupby
 import random
@@ -176,34 +176,3 @@ class Recipe:
                 result = Recipe.jsonify_data(rows)
 
                 return json.dumps(result)
-
-# def endpoint():
-#     abv = request.form["abv"]
-#     ibu = request.form["ibu"]
-#     query = request.form["query"]
-#     style = request.form["style"]
-#
-#     conditions = []
-#     parameters = []
-#
-#     [("{} = ?".format(col), val) for (col, val) in (("abv", abv), ("ibu", ibu)) if val]
-#
-#
-#     if abv:
-#         conditions.append("abv = ?")
-#         parameters.append(abv)
-#
-#     if ibu:
-#         conditions.append("ibu = ?")
-#         parameters.append(ibu)
-#
-#     if style:
-#         conditions.append("style = ?")
-#         parameters.append(style)
-#
-#     s = "SELECT * FROM recipes, ingredients WHERE "
-#     s += " AND ".join(conditions)
-#
-#
-#
-#     db.session.execute(s, parameters)

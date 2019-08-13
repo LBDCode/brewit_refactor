@@ -1,4 +1,4 @@
-from common.database import ConnectionFromPool
+from src.database import ConnectionFromPool
 
 class Ingredient:
     def __init__(self, recipe_id, ingredient, ingredient_id):

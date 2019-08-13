@@ -1,0 +1,24 @@
+{% extends "api.html" %}
+{% block content %}
+
+<h1>This is the API signin page</h1>
+
+<h2>Login to your account</h2>
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    <div class="row advanced-search-form">
+        {{ form.email }}
+    </div>
+      <div class="row advanced-search-form">
+        {{ form.password }}
+    </div>
+
+    <div class="row">
+        {{ form.submitLogin }}
+    </div>
+</form>
+
+
+
+<h3>or sign up for a key</h3>
+{% endblock %}
