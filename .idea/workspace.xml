@@ -2,94 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="226a2db2-dd1b-458e-8b83-7e5332ad7868" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/models/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/common/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/common/database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ingredients.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/recipes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/scrape.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Homebrew01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Homebrew02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/ag-grid-community.min.noStyle.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/ag-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/ag-theme-balham.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/bootstrap.min.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/brown.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/jquery.min.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/recipe.js.download" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/Recipe Converter_files/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/amber.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/beer2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/beer3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/beer4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/belgian.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/brown.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/cider.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/grain.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/grain2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/homebrew.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/hops.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ingredients.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/ipa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/lager.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/stout.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/typing.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/recipe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/config.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/fonts/slick.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/fonts/slick.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/fonts/slick.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/fonts/slick.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick-theme.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick-theme.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/slick/slick.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/api.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/browse.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/docs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recipe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/api.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/api.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/signup.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="193" column="41" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
+            <state relative-caret-position="210">
+              <caret line="152" column="59" selection-start-line="152" selection-start-column="59" selection-end-line="152" selection-end-column="59" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -111,11 +28,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/api.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="2" selection-start-column="6" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -129,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/users.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -155,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state relative-caret-position="266">
+              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -164,17 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/signin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="18" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/ingredients.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="8" />
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -182,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+            <state relative-caret-position="331">
+              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -274,10 +191,11 @@
         <option value="$PROJECT_DIR$/src/env2/config.py" />
         <option value="$PROJECT_DIR$/src/templates/index.html" />
         <option value="$PROJECT_DIR$/src/templates/signin.html" />
-        <option value="$PROJECT_DIR$/src/templates/api.html" />
+        <option value="$PROJECT_DIR$/src/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/models/forms.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/signup.html" />
-        <option value="$PROJECT_DIR$/src/models/forms.py" />
+        <option value="$PROJECT_DIR$/src/templates/api.html" />
       </list>
     </option>
   </component>
@@ -304,12 +222,6 @@
               <item name="brew_it_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="brew_it_api" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="brew_it_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="brew_it_api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="env2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="brew_it_api" type="b2602c69:ProjectViewProjectNode" />
@@ -438,9 +350,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.22544643" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.2313988" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.17708333" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -514,13 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flask/static/js/recipe.js" />
     <entry file="file://$PROJECT_DIR$/flask/templates/browse.html" />
     <entry file="file://$PROJECT_DIR$/flask/static/assets/grain.jpg" />
@@ -574,48 +478,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/api.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/recipes.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="68" selection-start-line="61" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="18" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -626,10 +492,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/recipes.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        <state relative-caret-position="331">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -638,11 +535,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="193" column="41" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="41" />
+        <state relative-caret-position="210">
+          <caret line="152" column="59" selection-start-line="152" selection-start-column="59" selection-end-line="152" selection-end-column="59" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="2" selection-start-column="6" selection-end-line="22" />
         </state>
       </provider>
     </entry>

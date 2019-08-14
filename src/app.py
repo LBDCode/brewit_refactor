@@ -1,8 +1,8 @@
 from src.common.database import Database
 from src.models.recipes import Recipe
 from src.models.forms import SearchForm, SimpleSearchForm, TypeForm, SignupForm, LoginForm
-from flask import Flask, render_template, request, Response
-
+from flask import Flask, render_template, request, Response, flash, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 from src.env2.config import db_config, key
 
 app = Flask(__name__)
@@ -135,7 +135,6 @@ def public_template():
     loginform = LoginForm()
     if loginform.validate_on_submit():
         email = request.form.get("email")
-        password = request.fo
         print(email)
 
     return render_template('api.html', form=loginform)
@@ -150,9 +149,13 @@ def docs_template():
 def signup_template():
     form = SignupForm()
     if form.validate_on_submit():
+        user = request.form.get("user_name")
+        message = 'Account created.  Welcome, ' + user + '!'
+        flash(message, 'success')
         email = request.form.get("email")
         first = request.form.get("first")
         print(email, first)
+        return redirect(url_for('public_template'))
     return render_template('signup.html', form=form)
 
 #public API login

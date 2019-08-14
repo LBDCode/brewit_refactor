@@ -26,14 +26,14 @@ class TypeForm(FlaskForm):
     stout = SubmitField('Stout')
 
 class SignupForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email(message="invalid email")])
-    first = StringField('first name', validators=[InputRequired(), Length(min=1, max=20)])
-    last = StringField('last name', validators=[InputRequired(), Length(min=1, max=20)])
-    password = PasswordField('password', validators=[InputRequired(), Length(max=50)])
+    email = StringField('Email', validators=[InputRequired(), Email(message="invalid email")])
+    user_name = StringField('User name', validators=[InputRequired(), Length(min=1, max=20)])
+    password = PasswordField('Password', validators=[InputRequired(), Length(max=50)])
+    confpw = PasswordField('Confirm password', validators=[InputRequired(), Length(max=50)])
     submitSignup = SubmitField('Signup')
 
 class LoginForm(FlaskForm):
-    email = StringField('email', validators=[InputRequired(), Email])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=6, max=80)])
+    email = StringField('Email', validators=[InputRequired(), Email])
+    password = PasswordField('Password', validators=[InputRequired(), Length(min=6, max=80)])
     submitLogin = SubmitField('Login')
 
