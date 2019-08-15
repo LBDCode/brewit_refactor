@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField, PasswordField
-from wtforms.validators import InputRequired, Length, Email
+from wtforms.validators import InputRequired, DataRequired, Length, Email, EqualTo
 from markupsafe import Markup
 from wtforms.widgets import HiddenInput
 
@@ -26,14 +26,14 @@ class TypeForm(FlaskForm):
     stout = SubmitField('Stout')
 
 class SignupForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email(message="invalid email")])
-    user_name = StringField('User name', validators=[InputRequired(), Length(min=1, max=20)])
-    password = PasswordField('Password', validators=[InputRequired(), Length(max=50)])
-    confpw = PasswordField('Confirm password', validators=[InputRequired(), Length(max=50)])
+    email = StringField('Email', validators=[DataRequired(), Email(message="invalid email")])
+    user_name = StringField('User name', validators=[DataRequired(), Length(min=2, max=20, message="please select a username between 2 and 20 characters")])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20, message="please select a username between 6 and 20 characters")])
+    confpw = PasswordField('Confirm password', validators=[DataRequired(), EqualTo('password', message="passwords must match")])
     submitSignup = SubmitField('Signup')
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=6, max=80)])
+    email = StringField('Email', validators=[DataRequired(), Email(message="invalid email")])
+    password = PasswordField('Password', validators=[DataRequired()])
     submitLogin = SubmitField('Login')
 

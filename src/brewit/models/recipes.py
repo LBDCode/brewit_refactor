@@ -1,4 +1,4 @@
-from src.common.database import ConnectionFromPool
+from common.database import ConnectionFromPool
 import json
 from itertools import groupby
 import random
