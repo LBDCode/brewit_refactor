@@ -1,50 +1,54 @@
 {% extends "api.html" %}
 {% block content %}
 
-<h1>Login to your account</h1>
-<hr>
-<form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <fieldset class="form">
-        <div class="form-row">
-            <div class="form-group col-med-6">
-                {{ form.email.label(class="form-control-label") }}
-                {% if form.email.errors %}
-                    {{ form.email(class="form-control is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for err in form.email.errors %}
-                            <span>{{ err }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                     {{ form.email(class="form-control") }}
-                {% endif %}
-            </div>
-            <div class="form-group col-med-6">
-                {{ form.password.label(class="form-control-label") }}
-                {% if form.password.errors %}
-                    {{ form.password(class="form-control is-invalid") }}
-                    <div class="invalid-feedback">
-                        {% for err in form.password.errors %}
-                            <span>{{ err }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                     {{ form.password(class="form-control") }}
-                {% endif %}
-            </div>
-        </div>
-    </fieldset>
-    <div class="form-group">
-        {{ form.submitLogin(class="btn btn-outline-info") }}
-        <span>
-            <small class="text-muted ml-2"><a class="ml-2" href="#">Forgot password?</a> </small>
-        </span>
+<section class="col api-block">
+    <hr>
+    <hr>
+    <div class="row section-row">
+        <h2 class="section-header">Sign In</h2>
     </div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form">
+            <div class="form-row">
+                <div class="form-group col-med-6">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for err in form.email.errors %}
+                                <span>{{ err }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.email(class="form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-group col-med-6">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for err in form.password.errors %}
+                                <span>{{ err }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.password(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submitLogin(class="btn btn-outline-info") }}
+            <span>
+                <small class="text-muted ml-2"><a class="ml-2" href="#">Forgot password?</a> </small>
+            </span>
+        </div>
+    </form>
     <div>
         <small class="text-muted ml-1">don't have an account?<a class="ml-2" href="{{ url_for('signup_template') }}">Sign up</a> </small>
     </div>
-</form>
-</form>
+</section>
 
 {% endblock %}

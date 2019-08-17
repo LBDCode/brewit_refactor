@@ -32,18 +32,22 @@
         <h2 class="recipe-header">Search Results</h2>
     </div>
     <div class="row recipe-cards">
-        {% for recipe in recipes %}
-            <div class="card beer-card">
-                <a class="beer-link" href="/recipe/{{ recipe.recipe_id }}">
-                    <img src="{{ recipe.image_url }}" class="card-img-top card-img" alt="...">
-                <div class="card-body card-descrip">
-                    <h6 class="card-text card-type">{{ recipe.type}}</h6>
-                    <h5 class="card-title">{{ recipe.title }}</h5>
+        {% if recipes is defined and recipes|length > 0 %}
+            {% for recipe in recipes %}
+                <div class="card beer-card">
+                    <a class="beer-link" href="/recipe/{{ recipe.recipe_id }}">
+                        <img src="{{ recipe.image_url }}" class="card-img-top card-img" alt="...">
+                    <div class="card-body card-descrip">
+                        <h6 class="card-text card-type">{{ recipe.type}}</h6>
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                    </div>
+                    <img class="card-logo" src="{{ url_for('static', filename='assets/logo2.png') }}">
+                    </a>
                 </div>
-                <img class="card-logo" src="{{ url_for('static', filename='assets/logo2.png') }}">
-                </a>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <h2 style="color: grey;">no results found</h2>
+        {% endif %}
     </div>
 </section>
 

@@ -23,22 +23,16 @@ class Recipe2(db.Model):
     @staticmethod
     def jsonify_data(data):
         result = []
-        for recipe_id, recipes in groupby(data, key=lambda each: each['recipe_id']):
-            recipes = list(recipes)
-            for recipe in recipes:
-                print(recipe)
-            # recipe = recipes[0].copy()
-            # recipe_dictionary = {'recipe_id': recipe['recipe_id'], 'title': recipe['title'], 'type': recipe['type'],
-            #                      'image_url': recipe['image_url'], 'beer_url': recipe['beer_url'],
-            #                      'batch': recipe['batch'],
-            #                      'original_gravity': recipe['original_gravity'],
-            #                      'final_gravity': recipe['final_gravity'],
-            #                      'abv': recipe['abv'], 'ibu': recipe['ibu'], 'directions': recipe['directions'],
-            #                      'ingredients': []}
-            # for rec in recipes:
-            #     ingredient = rec['ingredient']
-            #     recipe_dictionary['ingredients'].append(ingredient)
-            result.append(recipe_dictionary)
+        for item in data:
+            recipe = {'recipe_id': item.recipe_id, 'title': item.title, 'type': item.type,
+                                 'image_url': item.image_url, 'beer_url': item.beer_url,
+                                 'batch': item.batch, 'original_gravity': item.original_gravity,
+                                 'final_gravity': item.final_gravity, 'abv': item.abv, 'ibu': item.ibu,
+                                 'directions': item.directions, 'ingredients': []}
+            ser_ingredients = item.ingredients
+            for i in ser_ingredients:
+                recipe['ingredients'].append(i.ingredient)
+            result.append(recipe)
         return result
 
 

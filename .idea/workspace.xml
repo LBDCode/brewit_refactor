@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="226a2db2-dd1b-458e-8b83-7e5332ad7868" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/brewit/static/css/api.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/brewit/templates/public.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/models/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/models/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/models/ingredients2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/models/ingredients2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/brewit/models/recipes2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/models/recipes2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/models/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/models/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/brewit/routes/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/routes/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/static/assets/Homebrew01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/static/assets/Homebrew02.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/static/assets/homebrew.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/static/css/api.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/static/css/api.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/brewit/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/brewit/templates/api.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/api.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/brewit/templates/recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/recipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/templates/docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/docs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/signin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/brewit/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,53 +21,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/beer3.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/static/css/api.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/templates/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="29" selection-start-line="29" selection-end-line="32" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/logo.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/brewit/static/css/style.css">
+        <entry file="file://$PROJECT_DIR$/src/brewit/routes/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="193" column="23" lean-forward="true" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
+            <state relative-caret-position="260">
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
+              <folding>
+                <element signature="e#43#85#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/logo2.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
+        <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="81" column="39" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
+            <state relative-caret-position="219">
+              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,13 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>search-bu</find>
-      <find>navb</find>
-      <find>nav-;</find>
-      <find>pann</find>
-      <find>resul</find>
-      <find>fil</find>
-      <find>searc</find>
       <find>filt</find>
       <find>search-bl</find>
       <find>search-fo</find>
@@ -122,6 +91,13 @@
       <find>section-h</find>
       <find>cont</find>
       <find>hr</find>
+      <find>nav-c</find>
+      <find>header</find>
+      <find>signin</find>
+      <find>sign</find>
+      <find>beer-m</find>
+      <find>browse-t</find>
+      <find>recipe['</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,9 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/browse.html" />
-        <option value="$PROJECT_DIR$/templates/docs.html" />
-        <option value="$PROJECT_DIR$/templates/signin.html" />
         <option value="$PROJECT_DIR$/templates/account.html" />
         <option value="$PROJECT_DIR$/templates/signup.html" />
         <option value="$PROJECT_DIR$/static/js/recipe.js" />
@@ -166,28 +139,31 @@
         <option value="$PROJECT_DIR$/src/brewit/routes/__init__.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
-        <option value="$PROJECT_DIR$/src/brewit/templates/signup.html" />
         <option value="$PROJECT_DIR$/src/requirements.txt" />
         <option value="$PROJECT_DIR$/src/brewit/models/users.py" />
         <option value="$PROJECT_DIR$/src/brewit/__init__.py" />
         <option value="$PROJECT_DIR$/src/brewit/models/forms.py" />
-        <option value="$PROJECT_DIR$/src/brewit/templates/account.html" />
         <option value="$PROJECT_DIR$/src/brewit/models/ingredients2.py" />
         <option value="$PROJECT_DIR$/src/brewit/templates/recipe.html" />
         <option value="$PROJECT_DIR$/src/brewit/templates/public.html" />
-        <option value="$PROJECT_DIR$/src/brewit/routes/routes.py" />
-        <option value="$PROJECT_DIR$/src/brewit/models/recipes2.py" />
         <option value="$PROJECT_DIR$/src/brewit/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/brewit/templates/api.html" />
-        <option value="$PROJECT_DIR$/src/brewit/static/css/api.css" />
         <option value="$PROJECT_DIR$/src/brewit/static/css/style.css" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/signup.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/signin.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/search.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/docs.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/api.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/account.html" />
+        <option value="$PROJECT_DIR$/src/brewit/static/css/api.css" />
+        <option value="$PROJECT_DIR$/src/brewit/models/recipes2.py" />
+        <option value="$PROJECT_DIR$/src/brewit/routes/routes.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="143" />
-    <option name="width" value="1077" />
-    <option name="height" value="702" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -195,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,35 +194,20 @@
               <item name="brew_it_API2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="brewit" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="brew_it_API2" type="b2602c69:ProjectViewProjectNode" />
               <item name="brew_it_API2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="brewit" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="brew_it_API2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="brew_it_API2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="brewit" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="brew_it_API2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="brew_it_API2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="brewit" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,22 +319,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.2514881" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.25520834" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.17708333" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48139882" visible="true" weight="0.27332243" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4955357" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48139882" weight="0.27332243" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49479166" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SonarLint" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49330357" weight="0.2907489" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5186012" side_tool="true" visible="true" weight="0.27332243" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5052083" side_tool="true" weight="0.27332243" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -382,20 +341,20 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.2470238" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886104" visible="true" weight="0.25520834" />
       <window_info id="Structure" order="1" sideWeight="0.5011389" side_tool="true" weight="0.17708333" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48660713" visible="true" weight="0.20458265" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49627978" weight="0.39934534" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48139882" visible="true" weight="0.27332243" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49479166" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SonarLint" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49330357" weight="0.2907489" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51339287" side_tool="true" weight="0.26350245" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5052083" side_tool="true" weight="0.27332243" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -415,17 +374,20 @@
           <line>2</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/brewit/models/recipes2.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/brewit/models/recipes2.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Scripts/activate">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -437,13 +399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="238" column="8" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -518,20 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" selection-start-line="5" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/brewit/models/ingredients2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -549,39 +490,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/brewit/models/users.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/routes/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="191" column="46" selection-start-line="191" selection-start-column="46" selection-end-line="191" selection-end-column="46" />
-          <folding>
-            <element signature="e#43#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -652,37 +566,95 @@
     <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/beer3.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/logo2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/search.html">
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="29" selection-start-line="29" selection-end-line="32" selection-end-column="10" />
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="81" column="39" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/logo2.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/static/css/api.css">
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="334">
+          <caret line="48" column="30" lean-forward="true" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/brewit/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="193" column="23" lean-forward="true" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
+        <state relative-caret-position="188">
+          <caret line="230" column="4" lean-forward="true" selection-start-line="230" selection-start-column="4" selection-end-line="230" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="70" lean-forward="true" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/static/css/api.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/docs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/models/recipes2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/routes/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+          <folding>
+            <element signature="e#43#85#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

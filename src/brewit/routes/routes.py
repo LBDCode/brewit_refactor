@@ -178,21 +178,30 @@ def logout_template():
 
 @app.route('/api/<string:query>')
 def api_search(query):
+    key = ""
+    search = ""
+    random = 0;
+    type = ""
+    ibu = 0.0
+    abv = 0.0
     print(query)
     query = query.split("api/")
     print(query)
     query = query[0].split("&")
     print(query)
-    if query[0].split("=")[0] == 's':
-        print(query, "this is a search")
-        return render_template("public.html")
-    elif query[0].split("=")[0] == 'r':
-        result_limit = query[0].split("=")[1]
-        recipes = Recipe2.query.order_by(func.random()).limit(result_limit)
-        result = Recipe2.jsonify_data(recipes)
-        print(result)
-        return Response(recipes, content_type='application/json')
+    if query[-1].split("=")[0] == 'key':
+        print("this has a key")
+        if query[0].split("=")[0] == 's':
+            print(query, "this is a search")
+            return render_template("public.html")
+        elif query[0].split("=")[0] == 'r':
+            result_limit = query[0].split("=")[1]
+            recipes = Recipe2.query.order_by(func.random()).limit(result_limit)
+            result = json.dumps(Recipe2.jsonify_data(recipes))
+            print(result)
+            return Response(result, content_type='application/json')
     else:
+        print("no key")
         return render_template("public.html")
 
 
