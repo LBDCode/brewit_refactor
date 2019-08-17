@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}" />
 
     <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
@@ -25,48 +25,67 @@
 
 
 <div class="container-fluid">
-    <div class="row min-vh-100">
-        <aside class="p-0 bg-dark col-12 col-md-2 ">
-            <nav class="navbar navbar-expand navbar-dark align-items-start bg-dark flex-md-column flex-row  py-2">
+    <div class="row convert-sidebar">
+        <aside class="p-0 cust-bg col-12 col-md-2 ">
+            <nav class="navbar navbar-expand-sm navbar-light align-items-start flex-md-column flex-row py-2">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
                 <div class="collapse navbar-collapse">
                     <ul class="w-100 justify-content-between flex-md-column flex-row navbar-nav ">
                         <li class="nav-item">
-                            <a class="nav-link pl-0 text-nowrap" href="{{ url_for('public_template') }}"><span class="font-weight-bold">brewIt API</span></a>
+                            <a class="nav-link pl-0 text-nowrap font-weight-bold" href="{{ url_for('public_template') }}"><img class="brand-logo" src="{{ url_for('static', filename='assets/logo2.png') }}"<span class="font-weight-bold">brewIt API</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="{{ url_for('signup_template') }}"><i class="fa fa-heart-o fa-fw"></i> <span class="d-none d-md-inline">Sign up</span></a>
+                        {% if auth_status == True %}
+                            <li class="nav-item nav-cust">
+                                <a class="nav-link pl-0 text-nowrap" href="{{ url_for('logout_template') }}">sign out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item nav-cust">
+                                <a class="nav-link pl-0 text-nowrap" href="{{ url_for('signin_template') }}">sign in</a>
+                            </li>
+                        {% endif %}
+                        {% if auth_status == True %}
+                            <li class="nav-item nav-cust">
+                                <a class="nav-link pl-0 text-nowrap" href="{{ url_for('account_template') }}">account</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item nav-cust ">
+                                <a class="nav-link pl-0 text-nowrap" href="{{ url_for('signup_template') }}">sign up</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item nav-cust">
+                            <a class="nav-link pl-0 text-nowrap" href="{{ url_for('docs_template') }}">documentation</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="{{ url_for('signin_template') }}"><i class="fa fa-heart-o fa-fw"></i> <span class="d-none d-md-inline">Sign in</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="{{ url_for('docs_template') }}"><i class="fa fa-book fa-fw"></i> <span class="d-none d-md-inline">Documentation</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="{{ url_for('account_template') }}"><i class="fa fa-heart codeply fa-fw"></i> <span class="d-none d-md-inline">Account</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pl-0" href="{{ url_for('home_template') }}"><i class="fa fa-star codeply fa-fw"></i> <span class="d-none d-md-inline">Back to brewIt</span></a>
-                        </li>
-                        <li class="nav-item">
-                            {% with messages = get_flashed_messages(with_categories=true) %}
-                                {% if messages %}
-                                    {% for category, message in messages %}
-                                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                                    {% endfor %}
-                                {% endif %}
-                            {% endwith %}
+                        <li class="nav-item nav-cust">
+                            <a class="nav-link pl-0 text-nowrap" href="{{ url_for('home_template') }}">back to brewIt</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </aside>
 
-        <main class="col bg-faded py-3">
+        <main class="col main-block">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             {% block content %}
-            <h1>brewIt API </h1>
-
-            <p>welcome to the brewIt public API.</p>
+            <section class="header-block">
+                <h1 class="large-header">Welcome to the brewIt API</h1>
+            </section>
+            <hr>
+            <hr>
+            <div class="row section-row">
+                <h2 class="section-header">About</h2>
+            </div>
+            <section class="content-block">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula faucibus turpis, id pretium dui vestibulum vitae. Maecenas posuere suscipit dui, eu elementum enim feugiat ac. Vestibulum venenatis turpis quis ipsum volutpat dictum. Integer et feugiat arcu, ut condimentum dolor. Fusce nulla dolor, congue sed velit nec, egestas lobortis velit. Nulla id finibus libero. Aliquam ultrices id lacus at efficitur. Etiam et odio neque.</p>
+                <p>Vivamus enim quam, hendrerit nec iaculis sit amet, ullamcorper id libero. Fusce posuere ex in augue eleifend, a convallis velit tristique. Vivamus mauris augue, facilisis eu diam vel, ultricies dapibus turpis. Aliquam vitae dignissim velit, malesuada fringilla lacus. Ut posuere arcu varius rhoncus blandit. Aenean non euismod eros. Curabitur sollicitudin quis dolor vel viverra. Phasellus sit amet orci ornare, fringilla ligula vitae, malesuada purus. Aenean et sem sodales, dapibus diam a, congue ex. Sed lobortis sem sit amet imperdiet pretium. Sed dui dui, pellentesque eget tincidunt eget, bibendum non dui. Nulla ornare tincidunt convallis. Vivamus nec libero ante. In vitae viverra magna, et ultrices lacus.</p>
+            </section>
 
             {% endblock %}
         </main>

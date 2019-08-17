@@ -14,8 +14,13 @@ h2 {
     left: 0;
 }
 
+hr {
+    border-top: 1px solid #bdc3c7
+}
+
 .hr-no-margin {
     margin-top: 0!important;
+    border-top: 1px solid #bdc3c7
 }
 
 .search-button {
@@ -187,7 +192,7 @@ h2 {
 .beer-main {
     margin:100px 0 50px 0;
     padding: 15px 40px;
-    border: 2px solid rgba(0,0,0,.075);
+    border: 1px solid #bdc3c7;
 }
 
 .recipe-header {
@@ -431,7 +436,6 @@ ingredient-image {
     font-weight: 700;
     color: #ffffff;
 }
-
 
 @media only screen and (max-width: 770px) {
 

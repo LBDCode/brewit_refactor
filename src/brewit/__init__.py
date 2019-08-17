@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from brewit.env2.config import db_config, key
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 app = Flask(__name__)
 
@@ -10,5 +11,7 @@ DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=db_config['u
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
+login_mgr = LoginManager(app)
+login_mgr.login_view = 'signin_template'
 
 from brewit.routes import routes

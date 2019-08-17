@@ -1,0 +1,93 @@
+body {
+    font-family: "Source Serif Pro",serif;
+}
+
+hr {
+    border-top: 1px solid #bdc3c7
+}
+
+.convert-sidebar {
+    min-height: 100vh;
+}
+
+.brand-logo {
+    width: 35px;
+    margin-right: 3px;
+    font-size: 20px;
+}
+
+.nav-cust {
+    margin-left: 35px!important;
+    margin-top: 3px!important
+}
+
+.main-block {
+    margin: 10px 30px;
+}
+
+.header-block {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    height: 250px;
+    background-image: url(../assets/beer3.jpg);
+    opacity: .95;
+    background-size: cover;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    background-color: #f1f2f2;
+    font-family: "Source Serif Pro",serif;
+    font-weight: 700;
+    color: #ffffff;
+    width: 100%;
+    padding-top: 50px!important;
+}
+
+.content-block {
+    padding: 0 20px;
+    width: 100%;
+}
+
+.cust-bg {
+    background-color: #fff;
+    padding-top: 15px!important;
+}
+
+.large-logo {
+    max-width: 70px;
+    margin-right:15px;
+}
+
+
+.large-header {
+    margin-top: 50px;
+    padding: 30px 0;
+    margin: 0 auto;
+    background-color: #21252961;
+    justify-content: center;
+    align-content: center !important;
+    text-align: center;
+}
+
+.section-row {
+    margin-bottom: -15px;
+}
+
+.section-header {
+    position: relative;
+    top: -50px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    padding: 10px 20px;
+    background-color: #898c32;
+    font-size: 24px;
+    max-height: 150px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .convert-sidebar {
+        min-height: 0;
+    }
+}

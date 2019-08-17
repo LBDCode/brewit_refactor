@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField, PasswordField
-from wtforms.validators import InputRequired, DataRequired, Length, Email, EqualTo
-from markupsafe import Markup
-from wtforms.widgets import HiddenInput
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from brewit.models.users import User
+from flask_login import current_user
 
 class SearchForm(FlaskForm):
     query = StringField('search', render_kw={"placeholder": "Search beer name or style"})
@@ -27,13 +27,38 @@ class TypeForm(FlaskForm):
 
 class SignupForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email(message="invalid email")])
-    user_name = StringField('User name', validators=[DataRequired(), Length(min=2, max=20, message="please select a username between 2 and 20 characters")])
+    username = StringField('User name', validators=[DataRequired(), Length(min=2, max=20, message="please select a username between 2 and 20 characters")])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20, message="please select a username between 6 and 20 characters")])
     confpw = PasswordField('Confirm password', validators=[DataRequired(), EqualTo('password', message="passwords must match")])
     submitSignup = SubmitField('Signup')
+    def validate_email(self, email):
+        email = User.query.filter_by(email=email.data).first()
+        if email:
+            raise ValidationError('There is already an account associated with that email.')
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('That user name is already taken.')
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email(message="invalid email")])
     password = PasswordField('Password', validators=[DataRequired()])
     submitLogin = SubmitField('Login')
 
+class UpdateForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email(message="invalid email")])
+    username = StringField('User name', validators=[DataRequired(), Length(min=2, max=20, message="please select a username between 2 and 20 characters")])
+    submitUpdate = SubmitField('Update')
+    def validate_email(self, email):
+        if email.data != current_user.email:
+            email = User.query.filter_by(email=email.data).first()
+            if email:
+                raise ValidationError('There is already an account associated with that email.')
+    def validate_username(self, username):
+        if username.data != current_user.username:
+            user = User.query.filter_by(username=username.data).first()
+            if user:
+                raise ValidationError('That user name is already taken.')
+class UpdateKey(FlaskForm):
+    submitNewKey = SubmitField('Request new key')

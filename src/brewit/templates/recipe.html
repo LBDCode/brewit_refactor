@@ -30,19 +30,12 @@
         <hr>
 
         <div class="ingredients row">
-            <!--<div class="recipe-divider">-->
-                <h2> Ingredients </h2>
-            <!--</div>-->
+            <h2> Ingredients </h2>
             <table class="table ingredient-grid">
-                <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th scope="col">Ingredient</th>-->
-                    <!--</tr>-->
-                <!--</thead>-->
                 <tbody id="ingred-rows">
                     {% for ingredient in recipe.ingredients %}
                     <tr>
-                        <td>{{ ingredient }}</td>
+                        <td>{{ ingredient.ingredient }}</td>
                     </tr>
                     {% endfor %}
                  </tbody>

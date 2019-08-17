@@ -8,17 +8,16 @@
     <fieldset class="form">
         <div class="form-row">
             <div class="form-group col-med-6">
-                {{ form.user_name.label(class="form-control-label") }}
-
-                {% if form.user_name.errors %}
-                    {{ form.user_name(class="form-control is-invalid") }}
+                {{ form.username.label(class="form-control-label") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control is-invalid") }}
                     <div class="invalid-feedback">
-                        {% for err in form.user_name.errors %}
+                        {% for err in form.username.errors %}
                             <span>{{ err }}</span>
                         {% endfor %}
                     </div>
                  {% else %}
-                     {{ form.user_name(class="form-control") }}
+                     {{ form.username(class="form-control") }}
                 {% endif %}
 
             </div>

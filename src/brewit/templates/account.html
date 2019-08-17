@@ -1,15 +1,60 @@
 {% extends "api.html" %}
 {% block content %}
 
-<h1>This is the API account page</h1>
-
-<div class="api-account">
-    <h2>Account Overview</h2>
+<h1>Account details</h1>
     <hr>
-    <h4>Email: </h4>
-    <h4>User name: </h4>
-    <h4>API key: </h4>
 
-    <button type="button" class="btn btn-secondary">Edit</button>
+<div class="api-account media">
+    <div class="media-body">
+        <p><strong>Email:</strong> {{ current_user.email}}</p>
+        <p><strong>User name:</strong> {{ current_user.username }}</p>
+        <p><strong>API key:</strong> {{ current_user.key }}</p>
+
+    </div>
 </div>
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form">
+        <div class="form-row">
+            <div class="form-group col-med-6">
+                {{ form.username.label(class="form-control-label") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for err in form.username.errors %}
+                            <span>{{ err }}</span>
+                        {% endfor %}
+                    </div>
+                 {% else %}
+                     {{ form.username(class="form-control") }}
+                {% endif %}
+
+            </div>
+            <div class="form-group col-med-6">
+                {{ form.email.label(class="form-control-label") }}
+
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for err in form.email.errors %}
+                            <span>{{ err }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                     {{ form.email(class="form-control") }}
+                {% endif %}
+
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+            {{ form.submitUpdate(class="btn btn-outline-info") }}
+    </div>
+</form>
+<form method="POST" action="">
+    {{ keyform.hidden_tag() }}
+
+    {{ keyform.submitNewKey(class="btn btn-outline-danger") }}
+</form>
 {% endblock %}
