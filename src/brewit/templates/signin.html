@@ -42,10 +42,12 @@
         <div class="form-group">
             {{ form.submitLogin(class="btn btn-outline-info") }}
             <span>
-                <small class="text-muted ml-2"><a class="ml-2" href="#">Forgot password?</a> </small>
+                <small class="text-muted ml-2"><a class="ml-2" href="{{ url_for('request_template') }}">Forgot password?</a> </small>
             </span>
         </div>
     </form>
+    <div class="collapse" id="resetCollapse">
+    </div>
     <div>
         <small class="text-muted ml-1">don't have an account?<a class="ml-2" href="{{ url_for('signup_template') }}">Sign up</a> </small>
     </div>

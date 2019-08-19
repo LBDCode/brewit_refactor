@@ -1,3 +1,4 @@
+from env2.config import db_config
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 from recipes import Recipe
@@ -6,13 +7,11 @@ from common.database import Database
 import re
 
 
-Database.initialize(database='beer',
-                    user='postgres',
-                    password='tensleep9!23',
-                    host='postgres')
+Database.initialize(database=db_config['database'],
+                    user=db_config['user'],
+                    password=db_config['password0'],
+                    host=db_config['host'])
 
-# new_recipe = Recipe("test title2", "test type2", "test image url2", "test beer url2", 3, 2, 2, 2, 2, "test directions2", None)
-#
 # new_recipe.save_to_db()
 
 

@@ -3,8 +3,9 @@ from brewit.models.recipes2 import Recipe2
 from brewit.models.users import User
 from brewit.models.ingredients2 import Ingredient2
 from brewit import app, db, bcrypt
-from brewit.models.forms import SearchForm, SimpleSearchForm, TypeForm, SignupForm, LoginForm, UpdateForm, UpdateKey
-from flask import render_template, request, Response, flash, redirect, url_for
+from brewit.models.forms import SearchForm, SimpleSearchForm, TypeForm, SignupForm, LoginForm, UpdateForm, UpdateKey, \
+    ResetRequest, ResetPassword
+from flask import render_template, request, Response, flash, redirect, url_for, jsonify, abort
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import func, text
 from uuid import uuid4
@@ -108,6 +109,9 @@ def docs_template():
 # public API signup
 @app.route('/public_api/signup', methods=["GET", "POST"])
 def signup_template():
+    if current_user.is_authenticated():
+        return redirect('public_template')
+
     form = SignupForm()
     if form.validate_on_submit():
         user = request.form.get("username")
@@ -125,7 +129,9 @@ def signup_template():
 # public API login
 @app.route('/public_api/signin', methods=["GET", "POST"])
 def signin_template():
+
     form = LoginForm()
+
     if form.validate_on_submit():
         email = request.form.get("email")
         user = User.query.filter_by(email=email).first()
@@ -136,6 +142,7 @@ def signin_template():
         else:
             message = 'Login unsuccessful.'
             flash(message, 'danger')
+
     return render_template('signin.html', form=form, auth_status=current_user.is_authenticated)
 
 
@@ -169,6 +176,25 @@ def account_template():
     return render_template('account.html', auth_status=current_user.is_authenticated, form=form, keyform=keyForm)
 
 
+#public API password reset request
+@app.route('/reset_password', methods=["GET", "POST"])
+def request_template():
+    reqform = ResetRequest()
+    if reqform.validate_on_submit():
+        user = User.query.filter_by(email=reqform.emailReq.data).first()
+        print("reset password", user)
+    return render_template('request.html', auth_status=current_user.is_authenticated, reqform=reqform)
+
+#public API password reset request
+@app.route('/reset_password/<token>', methods=["GET", "POST"])
+def reset_template(token):
+    user = User.verify_pw_reset(token)
+    if not user:
+        flash('Invalid or expired token', 'danger')
+        return redirect(url_for('request_template'))
+    resetform = ResetPassword()
+    return render_template('reset.html', auth_status=current_user.is_authenticated, resetform=resetform)
+
 # public API logout
 @app.route('/public_api/logout')
 def logout_template():
@@ -178,43 +204,93 @@ def logout_template():
 
 @app.route('/api/<string:query>')
 def api_search(query):
-    key = ""
-    search = ""
-    random = 0;
-    type = ""
-    ibu = 0.0
-    abv = 0.0
-    print(query)
-    query = query.split("api/")
-    print(query)
-    query = query[0].split("&")
-    print(query)
-    if query[-1].split("=")[0] == 'key':
-        print("this has a key")
-        if query[0].split("=")[0] == 's':
-            print(query, "this is a search")
-            return render_template("public.html")
-        elif query[0].split("=")[0] == 'r':
-            result_limit = query[0].split("=")[1]
-            recipes = Recipe2.query.order_by(func.random()).limit(result_limit)
-            result = json.dumps(Recipe2.jsonify_data(recipes))
-            print(result)
-            return Response(result, content_type='application/json')
-    else:
-        print("no key")
-        return render_template("public.html")
+    key = request.args.get("key")
+    search = request.args.get("s")
+    random = request.args.get("r")
+    style = request.args.get("type")
+    low_ibu = request.args.get("low-ibu")
+    high_ibu = request.args.get("high-ibu")
+    low_abv = request.args.get("low-abv")
+    high_abv = request.args.get("high-abv")
+    limit = request.args.get("limit")
+    offset = request.args.get("offset")
+    recipes = []
 
+    #check key
+    try:
+        user = User.query.filter_by(key=key).first()
+        user.account_active = True
+    except:
+        abort(400, {'Missing or incorrect API key'})
 
-# @app.route('/api/recipes')
-# def recipe_all():
-#     recipes = Recipe2.find_all()
-#     return Response(recipes, content_type='application/json')
-#
-#
-# def recipe_random(results):
-#     recipes = Recipe.find_random(results)
-#     return Response(recipes, content_type='application/json')
-#     # return render_template("api.html")
+    #check query has search or random parameter
+    try:
+        if search or int(random) > 0:
+            pass
+    except:
+        abort(400, {'Query must have search or random parameter'})
+
+    #check abv and ibu parameters are numbers, if they exist
+    for param in [low_ibu, high_ibu, low_abv, high_abv]:
+        if param:
+            try:
+                float(param)
+            except:
+                abort(400, {'ABV and IBU parameters must be numbers'})
+
+    # check limit and offset params are ints, if they exist
+    for param in [limit, offset]:
+        if param:
+            try:
+                int(param)
+            except:
+                abort(400, {'Limit and offset parameters must be integers'})
+
+    #if try/excepts pass, build query
+    q = Recipe2.query
+    if search or (search and random):
+        print(search, "this is a search")
+        if search:
+            wildq = '%' + search + '%'
+            q = q.filter((Recipe2.type.ilike(wildq)) | (Recipe2.title.ilike(wildq)))
+        if style:
+            wilds = '%' + style + '%'
+            q = q.filter(Recipe2.type.ilike(wilds))
+        if low_abv or high_abv:
+            if low_abv and high_abv:
+                q = q.filter(Recipe2.abv.between(low_abv, high_abv))
+            elif low_abv:
+                q = q.filter(Recipe2.abv >= low_abv)
+            elif high_abv:
+                q = q.filter(Recipe2.abv <= high_abv)
+        if low_ibu or high_ibu:
+            if low_ibu and high_ibu:
+                q = q.filter(Recipe2.ibu.between(low_ibu, high_ibu))
+            elif low_ibu:
+                q = q.filter(Recipe2.ibu >= low_ibu)
+            elif high_ibu:
+                q = q.filter(Recipe2.ibu <= high_ibu)
+        if limit:
+            limit = int(limit)
+            if limit <= 50:
+                result_limit = limit
+            else:
+                result_limit = 50
+            q = q.limit(result_limit)
+        if offset:
+            offset = int(offset)
+            q = q.offset(offset)
+        recipes = q.all()
+    elif random:
+        random = int(random)
+        if random <= 50:
+            result_limit = random
+        else:
+            result_limit = 50
+        recipes = q.order_by(func.random()).limit(result_limit)
+
+    result = json.dumps(Recipe2.jsonify_data(recipes))
+    return Response(result, content_type='application/json')
 
 
 @app.route('/type/<string:beer_type>')

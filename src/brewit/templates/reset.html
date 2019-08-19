@@ -1,0 +1,52 @@
+{% extends "api.html" %}
+{% block content %}
+
+<section class="col api-block">
+    <hr>
+    <hr>
+    <div class="row section-row">
+        <h2 class="section-header">Reset Password</h2>
+    </div>
+    <form method="POST" action="">
+        {{ resetform.hidden_tag() }}
+        <fieldset class="form">
+            <div class="form-row">
+            <div class="form-row">
+                <div class="form-group col-med-6">
+                    {{ resetform.password.label(class="form-control-label") }}
+
+                    {% if resetform.password.errors %}
+                        {{ resetform.password(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for err in resetform.password.errors %}
+                                <span>{{ err }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ resetform.password(class="form-control") }}
+                    {% endif %}
+
+                </div>
+                <div class="form-group col-med-6">
+                    {{ resetform.confpw.label(class="form-control-label") }}
+
+                    {% if resetform.confpw.errors %}
+                        {{ resetform.confpw(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for err in resetform.confpw.errors %}
+                                <span>{{ err }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ resetform.confpw(class="form-control") }}
+                    {% endif %}
+
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+                {{ resetform.submitReset(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</section>
+{% endblock %}

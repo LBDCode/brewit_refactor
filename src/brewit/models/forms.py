@@ -60,5 +60,19 @@ class UpdateForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('That user name is already taken.')
+
 class UpdateKey(FlaskForm):
     submitNewKey = SubmitField('Request new key')
+
+class ResetRequest(FlaskForm):
+    emailReq = StringField('Email', validators=[DataRequired(), Email()])
+    submitRequest = SubmitField('Submit')
+    def validate_emailReq(self, emailReq):
+        email = User.query.filter_by(email=emailReq.data).first()
+        if email is None:
+            raise ValidationError('There is no account associated with that email address.  Please register or correct email.')
+
+class ResetPassword(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20, message="please select a username between 6 and 20 characters")])
+    confpw = PasswordField('Confirm password', validators=[DataRequired(), EqualTo('password', message="passwords must match")])
+    submitReset = SubmitField('Reset Password')

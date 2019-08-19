@@ -1,0 +1,45 @@
+{% extends "api.html" %}
+{% block content %}
+
+<section class="col api-block">
+    <hr>
+    <hr>
+    <div class="row section-row">
+        <h2 class="section-header">Change Password</h2>
+    </div>
+
+        <div class="card card-body">
+        <form method="POST" action="">
+            {{ reqform.hidden_tag() }}
+            <fieldset class="form">
+                <h4>Password Assistance</h4>
+                <p>Enter the email associated with your account to receive a reset link.</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        {% if reqform.emailReq.errors %}
+                            {{ reqform.emailReq(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for err in reqorm.emailReq.errors %}
+                                    <span>{{ err }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                             {{ reqform.emailReq(class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <span class="form-group">
+                        {{ reqform.submitRequest(class="btn btn-outline-danger input-group-append") }}
+                     </span>
+
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div>
+        <small class="text-muted ml-1">don't have an account?<a class="ml-2" href="{{ url_for('signup_template') }}">Sign up</a> </small>
+    </div>
+</section>
+
+{% endblock %}

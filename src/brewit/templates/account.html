@@ -15,10 +15,15 @@
         </div>
     </div>
 
-
-    <button class="edit-toggle btn btn-dark" type="button" data-toggle="collapse" data-target="#accountCollapse" aria-expanded="false" aria-controls="accountCollapse">
-        Edit Account
-    </button>
+    <div class="row account-actions">
+        <button class="edit-toggle btn btn-dark" type="button" data-toggle="collapse" data-target="#accountCollapse" aria-expanded="false" aria-controls="accountCollapse">
+            Edit Account
+        </button>
+        <form method="POST" action="">
+            {{ keyform.hidden_tag() }}
+            {{ keyform.submitNewKey(class="btn btn-danger edit-toggle") }}
+        </form>
+    </div>
     <div class="collapse" id="accountCollapse">
         <div class="card card-body">
             <form method="POST" action="">
@@ -58,12 +63,6 @@
                     {{ form.submitUpdate(class="btn btn-outline-info") }}
             </div>
         </form>
-        <form method="POST" action="">
-            {{ keyform.hidden_tag() }}
-            {{ keyform.submitNewKey(class="btn btn-outline-danger") }}
-        </form>
-
-
       </div>
     </div>
 
