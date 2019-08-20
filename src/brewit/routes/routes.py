@@ -1,8 +1,7 @@
-# from brewit.models.recipes import Recipe
 from brewit.models.recipes2 import Recipe2
 from brewit.models.users import User
 from brewit.models.ingredients2 import Ingredient2
-from brewit import app, db, bcrypt
+from brewit import app, db, bcrypt, mail
 from brewit.models.forms import SearchForm, SimpleSearchForm, TypeForm, SignupForm, LoginForm, UpdateForm, UpdateKey, \
     ResetRequest, ResetPassword
 from flask import render_template, request, Response, flash, redirect, url_for, jsonify, abort
@@ -10,6 +9,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import func, text
 from uuid import uuid4
 import json
+from flask_mail import Message
 
 
 # home
@@ -109,9 +109,6 @@ def docs_template():
 # public API signup
 @app.route('/public_api/signup', methods=["GET", "POST"])
 def signup_template():
-    if current_user.is_authenticated():
-        return redirect('public_template')
-
     form = SignupForm()
     if form.validate_on_submit():
         user = request.form.get("username")
@@ -129,9 +126,7 @@ def signup_template():
 # public API login
 @app.route('/public_api/signin', methods=["GET", "POST"])
 def signin_template():
-
     form = LoginForm()
-
     if form.validate_on_submit():
         email = request.form.get("email")
         user = User.query.filter_by(email=email).first()
@@ -175,6 +170,18 @@ def account_template():
 
     return render_template('account.html', auth_status=current_user.is_authenticated, form=form, keyform=keyForm)
 
+def send_reset(user):
+    token = user.pw_reset_token()
+    message = Message('brewIt Password Reset Request',
+                      sender='brewit.mailer@gmail.com',
+                      recipients=[user.email])
+    message.body = f'''To reset your password, visit the following link:
+{url_for('reset_template', token=token, _external=True)}
+
+If you did not request a password reset, please disregard this email.  No changes will be made to your brewIt account.
+    '''
+    print(user.email)
+    mail.send(message)
 
 #public API password reset request
 @app.route('/reset_password', methods=["GET", "POST"])
@@ -182,7 +189,9 @@ def request_template():
     reqform = ResetRequest()
     if reqform.validate_on_submit():
         user = User.query.filter_by(email=reqform.emailReq.data).first()
-        print("reset password", user)
+        send_reset(user)
+        flash('An email has been sent with password reset instructions', 'info')
+        return redirect(url_for('signin_template'))
     return render_template('request.html', auth_status=current_user.is_authenticated, reqform=reqform)
 
 #public API password reset request
@@ -193,6 +202,14 @@ def reset_template(token):
         flash('Invalid or expired token', 'danger')
         return redirect(url_for('request_template'))
     resetform = ResetPassword()
+    if resetform.validate_on_submit():
+        pw = request.form.get("password")
+        hashed = bcrypt.generate_password_hash(pw).decode("utf-8")
+        user.password = hashed
+        db.session.commit()
+        message = 'Your password has been reset.  You can now log in.'
+        flash(message, 'success')
+        return redirect(url_for('signin_template'))
     return render_template('reset.html', auth_status=current_user.is_authenticated, resetform=resetform)
 
 # public API logout
