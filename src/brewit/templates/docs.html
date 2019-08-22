@@ -1,95 +1,318 @@
 {% extends "api.html" %}
 {% block content %}
 
-<section class="col api-block">
+<section class="col-med-12 api-block">
     <hr>
     <hr>
     <div class="row section-row">
         <h2 class="section-header">Documentation</h2>
     </div>
-
-    <section class="content-block">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula faucibus turpis, id pretium dui vestibulum vitae. Maecenas posuere suscipit dui, eu elementum enim feugiat ac. Vestibulum venenatis turpis quis ipsum volutpat dictum. Integer et feugiat arcu, ut condimentum dolor. Fusce nulla dolor, congue sed velit nec, egestas lobortis velit. Nulla id finibus libero. Aliquam ultrices id lacus at efficitur. Etiam et odio neque.</p>
-        <div class="api-table">
-
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">Parameter</th>
-                    <th scope="col">Required</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">key</th>
-                    <td>yes*</td>
-                    <td>string</td>
-                    <td>Your brewIt API key (ex: 'key=233as-234-dc-2341-3').</td>
-                </tr>
-                <tr>
-                    <th scope="row">s</th>
-                    <td>yes*</td>
-                    <td>string</td>
-                    <td>Search query text (ex: 's=brown+ale').  Every call must have either s or r parameters.  If both
-                        are included, the query will default to the search parameter, and ignore the random command.</td>
-                </tr>
-                <tr>
-                    <th scope="row">r</th>
-                    <td>yes*</td>
-                    <td>integer</td>
-                    <td>Random response generator based on number of desired recipes (ex: 'r=24').  The upper limit
-                        for r is 50 results.  Every call must have either s or r parameters.  If both are included, the
-                        query will default to the search parameter, and ignore the random command.</td>
-                </tr>
-                <tr>
-                    <th scope="row">type</th>
-                    <td>no</td>
-                    <td>string</td>
-                    <td>Filter results by style of beer (ex: 'type=ipa').</td>
-                </tr>
-                <tr>
-                    <th scope="row">low-ibu and high-ibu</th>
-                    <td>no</td>
-                    <td>float</td>
-                    <td>Filter results by low or high IBU limits; these act as >= and <= operators, and can be used in
-                        combination (ex: 'low-ibu=30' will return recipes with IBU >= 30.  'low-ibu=30&high-ibu=60' will
-                        return recipes with IBU >=30 and <=60').
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">low-abv and high-abv</th>
-                    <td>no</td>
-                    <td>float</td>
-                    <td>Filter results by low or high ABV limits; these act as >= and <= operators, and can be used in
-                        combination (ex: 'low-abv=4' will return recipes with ABV >= 4.  'low-abv=4&high-abv=8' will
-                        return recipes with IBU >=4 and <=8').
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">limit</th>
-                    <td>no</td>
-                    <td>integer</td>
-                    <td>Restrict the number of results (ex: 'limit=30').  The maximum number of results is 50, use
-                        offset to paginate searches.
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">offset</th>
-                    <td>no</td>
-                    <td>integer</td>
-                    <td>Use with the a user defined limit or default limit (50 results) to paginate results (ex:
-                        'offset=20' will return results 21-70 of the search, while 'limit=30&offset=10' will return
-                        results 11-40 of the search)
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+    <br>
+    <section class="content-block row">
+        <h4><strong>Using the brewIt API</strong></h4>
+        <p>Developers can access brewIt's database of homebrew recipes by sending a GET request to a query url that is
+            comprised of the base brewIt API URL, query parameters, and a unique API key.  On success, the API will
+            return a 200 OK code with the results in JSON format.  If the request fails, the API will return an
+            error code.
+        </p>
+    </section>
+    <br>
+    <section class="content-block row">
+        <h5><strong>Acquiring and using an API key</strong></h5>
+        <p>To obtain an API key, sign up for a brewIt developer account - you will receive an email with your unique
+            key.  Your key can also be found by logging in to brewIt and navigating to the  Account page.  Your API key
+            must be appended to the query search parameters as '&key={your key}'.
+        </p>
+    </section>
+    <br>
+    <section class="content-block row">
+        <h5><strong>Constructing a query URL</strong></h5>
+        <p>The query URL is comprised of the base brewIt API URL, query parameters, and a unique API key.  Each query
+        must include either an 's' (search) or 'r' (random) parameter, and may include any or all of the additional
+        six optional parameters.
+        <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-header"><strong>base url:</strong> https://brewit.tech/api/search?</div>
+        </div>
+        </p>
+    </section>
+    <br>
+    <section class="content-block row">
+        <h5><strong>Parameters</strong></h5>
+        <p>Query parameters must include either the 's' (search) or 'r' (random) parameter.  The 's' parameter takes a string
+            and searches for recipes with titles or beer types that contain that string.  The 'r' parameter takes an
+            integer which acts as a limit - it returns random results up to the submitted query limit (or 50,
+            whichever is lower).
+            There are six optional parameters (outlined below) that can be combined with the 's' parameter.
+        </p>
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>
+            <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Required</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">key</th>
+                <td>yes</td>
+                <td>string</td>
+                <td>Your brewIt API key (ex: 'key=233as-234-dc-2341-3').</td>
+            </tr>
+            <tr>
+                <th scope="row">s</th>
+                <td>yes*</td>
+                <td>string</td>
+                <td>Search query text (ex: 's=brown+ale').  Every call must have either s or r parameters - if both
+                    are included, the query will default to the search parameter, and ignore the random command.</td>
+            </tr>
+            <tr>
+                <th scope="row">r</th>
+                <td>yes*</td>
+                <td>integer</td>
+                <td>Random response generator based on number of desired recipes (ex: 'r=24') up to an upper limit of 50
+                    results.  Every call must have either s or r parameters - if both are included, the
+                    query will default to the search parameter, and ignore the random command.</td>
+            </tr>
+            <tr>
+                <th scope="row">type</th>
+                <td>no</td>
+                <td>string</td>
+                <td>Filter results by style of beer (ex: 'type=ipa').</td>
+            </tr>
+            <tr>
+                <th scope="row">low-ibu</th>
+                <td>no</td>
+                <td>float</td>
+                <td>Filter results by low IBU as a >= operator, and can be used in combination with the high-ibu
+                    parameter to define a range (ex: 'low-ibu=30' will return recipes with IBU >= 30.
+                    'low-ibu=30&high-ibu=60' will return recipes with IBU >=30 and <=60').
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">high-ibu</th>
+                <td>no</td>
+                <td>float</td>
+                <td>Filter results by high IBU as a <= operator, and can be used in combination with the high-ibu
+                    parameter to define a range (ex: 'high-ibu=60' will return recipes with IBU <= 60.
+                    'low-ibu=30&high-ibu=60' will return recipes with IBU >=30 and <=60')..
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">low-abv</th>
+                <td>no</td>
+                <td>float</td>
+                <td>Filter results by low ABV as a >= operator, and can be used in combination with high-abv to define
+                    a range (ex: 'low-abv=4' will return recipes with ABV >= 4, while 'low-abv=4&high-abv=8' will return
+                    recipes with IBU >=4 and <=8').
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">high-abv</th>
+                <td>no</td>
+                <td>float</td>
+                <td>Filter results by high ABV as a <= operator, and can be used in combination with low-abv to define
+                    a range (ex: 'high-abv=8' will return recipes with ABV <= 8 while 'low-abv=4&high-abv=8' will return
+                    recipes with IBU >=4 and <=8').
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">limit</th>
+                <td>no</td>
+                <td>integer</td>
+                <td>Limit allows you to restrict the number of results (ex: 'limit=30').  If no limit is defined,
+                    the default limit of 50 will be used.  Use limit in combination with offset to paginate searches.
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">offset</th>
+                <td>no</td>
+                <td>integer</td>
+                <td>Use with the default limit (50 results) or a user defined limit to paginate results (ex:
+                    'offset=20' will return results 21-70 of the search, while 'limit=30&offset=10' will return
+                    results 11-40 of the search)
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <small>*a query must include either a search ('s') or random limit ('r') parameter.</small>
+    </section>
+    <br>
+    <section class="content-block row">
+        <div>
+            <h5><strong>Examples</strong></h5>
+        <p>
+            Here are a few examples that walk through how to build a query URL.
+        </p>
 
         </div>
+        <div class="doc-example">
+            <div class="doc-callout">
+                <h6><strong>Simple Random Query:</strong></h6>
+                <small>
+                    <div class="text-muted">This example uses just the 'r' parameter to return 15 random recipes.
+                    </div>
+                    <br>
+                    <p>
+                        <strong>Target URL: </strong> http://127.0.0.1:5000/api/search?r=15&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+                    </p>
+                    <pre class="doc-code">
+    function randomBeer() {
+        // construct the query URL
+        const baseURL = "http://127.0.0.1:5000/api/search?"
+        const search = "r=15";
+        const key = "&key=8141e1d7-0253-4t6a-9853-71ua8acce027";
+        const queryURL = baseURL + search + key;
+        // send a GET request
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          // Printing the entire object to console
+          console.log(response);
+        });
+    }
+                    </pre>
+                </small>
+            </div>
+        </div>
     </section>
-
+    <br>
+    <section class="content-block row">
+        <div class="doc-example">
+            <div class="doc-callout">
+                <h6><strong>Simple Search Query:</strong></h6>
+                <small>
+                    <div class="text-muted">This example will return recipes with 'brown ale' in the title or style,
+                        up to the default limit of 50 results.
+                    </div>
+                    <br>
+                    <p>
+                        <strong>Target URL: </strong> http://127.0.0.1:5000/api/search?s=brown+ale&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+                    </p>
+                    <pre class="doc-code">
+    function simpleSearch() {
+        // construct the query URL
+        const baseURL = "http://127.0.0.1:5000/api/search?"
+        const search = "s=brown+ale";
+        const key = "&key=8141e1d7-0253-4t6a-9853-71ua8acce027";
+        const queryURL = baseURL + search + key;
+        // send a GET request
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          // Printing the entire object to console
+          console.log(response);
+        });
+    }
+                    </pre>
+                </small>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="content-block row">
+        <div class="doc-example">
+            <div class="doc-callout">
+                <h6><strong>More complex query with optional parameters:</strong></h6>
+                <small>
+                    <div class="text-muted">This example will search for recipes with a minimum abv of 4 and 'brown ale in
+                          the title or type columns.  It will return up to 10 results, offset by 5 (results 5-14).
+                    </div>
+                    <br>
+                    <p>
+                        <strong>Target URL: </strong> http://127.0.0.1:5000/api/search?s=brown+ale&abv-low=4&limit=10&offset=5&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+                    </p>
+                    <pre class="doc-code">
+    function paramsSearch() {
+        // construct the query URL
+        const baseURL = "http://127.0.0.1:5000/api/search?"
+        const search = "s=brown+ale";
+        const params = "&abv-low=4";
+        const limit = "&limit=10";
+        const offset = "&offset=5";
+        const key = "&key=8141e1d7-0253-4t6a-9853-71ua8acce027";
+        const queryURL = baseURL + search + params + limit + offset + key;
+        // send a GET request
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          // Printing the entire object to console
+          console.log(response);
+        });
+    }
+                    </pre>
+                </small>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="content-block row">
+        <h5><strong>Response</strong></h5>
+            <p>If the request succeeds, the server responds with the 200 OK HTTP status code and the recipe results
+                formatted as JSON objects:</p>
+            <div class="doc-example">
+              <div class="doc-callout">
+                  <h6><strong>Example response:</strong></h6>
+                  <small>
+                      <div class="text-muted">Results are returned in JSON format as an array of objects.
+                      </div>
+                      <br>
+                      <p>
+                          <strong>Target URL: </strong> http://127.0.0.1:5000/api/search?r=1&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+                      </p>
+                      <pre class="doc-code">
+  [
+    {
+        "recipe_id": 294,
+        "title": "Yellow Diamond Belgian Pale Ale",
+        "type": "Belgian and French Ale",
+        "image_url": "https://cdn.homebrewersassociation.org/wp-content/uploads/2013/06/BPA_post.jpg",
+        "beer_url": "https://www.homebrewersassociation.org/homebrew-recipe/beer-recipe-of-the-week-yellow-diamond-belgian-pale-ale/",
+        "batch": "5 gal",
+        "original_gravity": 0,
+        "final_gravity": 0,
+        "abv": 0,
+        "ibu": 30,
+        "directions": "Mash at 152°F (67°C) for 60 minutes, then add boiling water to raise to 170°F (77°C) and sparge. Ferment at 66°F. ",
+        "ingredients": [
+        "4.0 lbs (1.8 kg) | Belgian pale ale malt",
+        "3.0 lbs (1.4 kg) | Belgian Munich malt",
+        "1.0 lb (0.45 kg) | Belgian aromatic malt",
+        "6.0 oz (170 g) | Belgian medium crystal",
+        "1.5 lbs (0.68 kg) | Piloncillo or other unrefined sugar, added to brew kettle",
+        "1.0 oz (28 g) | Northern Brewer 6.5% alpha acid (90 minutes)",
+        "0.67 oz (19 g) | Saaz 3% alpha acid (90 minutes)",
+        "1.0 oz (28 g) | Saaz 3% alpha acid (15 minutes)",
+        "1 to 2 oranges zested, add at end of boil",
+        "0.5 oz (14 g) | Coriander, crushed",
+        "1 whole star anise, or 0.5 tsp (2 g) grains of paradise, or your secret spice of choice",
+        "Belgian Style yeast"
+        ]
+    }
+  ]
+                  </pre>
+                  </small>
+              </div>
+            </div>
+            <br>
+            <div>
+                <p>If the request fails, the server will respond with an error code, and will provide more information
+                    in the HTML.
+                </p>
+            </div>
+              <div class="doc-example">
+                  <strong><p>Error from console:</p></strong>
+                  <img class="doc-image" src="{{ url_for('static', filename='assets/400.png') }}">
+                  <strong><p>Message from HTML:</p></strong>
+                  <img class="doc-image" src="{{ url_for('static', filename='assets/html400.png') }}">
+              </div>
+            </div>
+        </div>
+    </section>
 </section>
 
 {% endblock %}

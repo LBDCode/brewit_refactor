@@ -4,9 +4,11 @@ from brewit.env2.config import db_config, key, mail
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app)
 app.config['SECRET_KEY'] = key
 DB_URL = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(user=db_config['user'], pw=db_config['password0'], url=db_config['host'], db=db_config['database'])
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL

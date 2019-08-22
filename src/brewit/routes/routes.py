@@ -119,9 +119,30 @@ def signup_template():
         db.session.commit()
         message = 'Account created, ' + user + '.  You can now log in.'
         flash(message, 'success')
+        send_signup_email(email)
         return redirect(url_for('signin_template'))
     return render_template('signup.html', form=form, auth_status=current_user.is_authenticated)
 
+
+def send_signup_email(email):
+    user = User.query.filter_by(email=email).first()
+    key = user.key
+    message = Message('brewIt Account',
+                      sender='brewit.mailer@gmail.com',
+                      recipients=[user.email])
+    message.body = f'''Thank you for siging up for a brewIt API account.  Your API key is:
+
+{key}
+
+If you ever forget your key, or need to request a new one, you can login to your brewIt account, and navigate to the
+account details 
+
+{url_for('signin_template', _external=True)}
+
+Regards, 
+brewIt Development Team
+        '''
+    mail.send(message)
 
 # public API login
 @app.route('/public_api/signin', methods=["GET", "POST"])
@@ -180,7 +201,6 @@ def send_reset(user):
 
 If you did not request a password reset, please disregard this email.  No changes will be made to your brewIt account.
     '''
-    print(user.email)
     mail.send(message)
 
 #public API password reset request

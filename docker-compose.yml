@@ -6,7 +6,7 @@ services:
 #    container_name: nginx2
 #    restart: always
 #    links:
-#      - py
+#      - py2
 #    ports:
 #      - "80:80"
 #      - "443:443"
@@ -25,9 +25,9 @@ services:
       - POSTGRES_PASSWORD=${DB_PW}
       - POSTGRES_DB=${DB_NAME}
 
-  py:
+  py2:
     build: ./src
-    container_name: py
+    container_name: py2
     restart: always
     links:
       - postgres

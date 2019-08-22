@@ -79,8 +79,16 @@
                     <h2 class="section-header">About</h2>
                 </div>
                 <section class="content-block">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula faucibus turpis, id pretium dui vestibulum vitae. Maecenas posuere suscipit dui, eu elementum enim feugiat ac. Vestibulum venenatis turpis quis ipsum volutpat dictum. Integer et feugiat arcu, ut condimentum dolor. Fusce nulla dolor, congue sed velit nec, egestas lobortis velit. Nulla id finibus libero. Aliquam ultrices id lacus at efficitur. Etiam et odio neque.</p>
-                    <p>Vivamus enim quam, hendrerit nec iaculis sit amet, ullamcorper id libero. Fusce posuere ex in augue eleifend, a convallis velit tristique. Vivamus mauris augue, facilisis eu diam vel, ultricies dapibus turpis. Aliquam vitae dignissim velit, malesuada fringilla lacus. Ut posuere arcu varius rhoncus blandit. Aenean non euismod eros. Curabitur sollicitudin quis dolor vel viverra. Phasellus sit amet orci ornare, fringilla ligula vitae, malesuada purus. Aenean et sem sodales, dapibus diam a, congue ex. Sed lobortis sem sit amet imperdiet pretium. Sed dui dui, pellentesque eget tincidunt eget, bibendum non dui. Nulla ornare tincidunt convallis. Vivamus nec libero ante. In vitae viverra magna, et ultrices lacus.</p>
+                    <p>The brewIt API allows developers to access hundreds of homebrew recipes, and search by
+                        title, beer type, ABV and IBU.  To get started, you'll need to sign up for a brewIt account and
+                        API key.  Once you have those, the documentation section has everything you'll need to use
+                        the API to build your own app.
+
+                    </p>
+                    <div class="buttons" aria-label="Basic example">
+                        <a href="{{url_for('signup_template')}}" class="btn btn-secondary api-button">Create an Account</a>
+                        <a href="{{url_for('docs_template')}}" class="btn btn-secondary api-button">Read the Docs</a>
+                    </div>
                 </section>
 
                 {% endblock %}

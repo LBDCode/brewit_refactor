@@ -49,6 +49,7 @@ hr {
 .content-block {
     padding: 0 20px;
     width: 100%;
+    font-family: Arial!important;
 }
 
 .cust-bg {
@@ -104,6 +105,15 @@ hr {
     margin: 30px 0;
 }
 
+.buttons {
+    margin: 20px;
+    text-align: center;
+}
+
+.api-button {
+    margin: 10px;
+}
+
 .media-body p {
     margin-bottom: 3px;
     letter-spacing: .5px;
@@ -120,6 +130,38 @@ hr {
     margin-bottom: 10px;
 }
 
+.doc-example {
+    width: 650px;
+    padding: 20px 15px 0 15px;
+    background-color: #dee2e6;
+    margin-bottom: 20px;
+}
+
+.doc-code {
+    background-color: #fff;
+    padding: 15px 5px 5px 5px;
+}
+
+.doc-image {
+    width: 90%;
+    margin: 0 5px 15px 5px;
+}
+
+
+@media only screen and (max-width: 920px) {
+    .doc-example {
+        max-width: 550px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .doc-example {
+        max-width: 450px;
+    }
+}
+
+
+
 @media only screen and (max-width: 768px) {
 
     .convert-sidebar {
@@ -129,4 +171,53 @@ hr {
     .nav-cust {
         margin-top: 3px!important
     }
+}
+
+@media only screen and (max-width: 650px) {
+    .doc-example {
+        max-width: 450px;
+    }
+
+    .main-block {
+        margin: 10px;
+        padding:10px;
+    }
+
+    .api-container {
+        max-width: 95%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .doc-example {
+        max-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .doc-example {
+        max-width: 350px;
+    }
+
+    .content-block {
+        margin-left: 0!important;
+        padding: 5px;
+    }
+
+    .api-block {
+       margin: 0;
+       padding: 5px;
+    }
+
+    .api-container {
+       margin: 0;
+       padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .doc-example {
+        max-width: 290px;
+    }
+
 }

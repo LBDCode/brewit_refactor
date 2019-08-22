@@ -123,6 +123,7 @@ hr {
 
 .card-overlay {
     width: 100%;
+
 }
 
 .card-title {
@@ -179,7 +180,8 @@ hr {
     color: transparent;
     z-index: 9;
     height: 150px;
-    width: 200px
+    width: 200px;
+    outline: none;
 }
 
 .main-content {
@@ -357,6 +359,7 @@ hr {
     margin: 0 auto;
     padding-top: 10px;
     line-height: 1;
+    font-family: Arial!important;
 }
 
 .recipe-logo {
