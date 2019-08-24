@@ -32,7 +32,7 @@ The query URL is comprised of the base brewIt API URL, query parameters, and a u
 must include either an 's' (search) or 'r' (random) parameter, and may include any or all of the additional
 six optional parameters.
 
-<div><strong>base url:</strong> https://brewit.tech/api/search?</div>
+<div><strong>base url:</strong> https://www.brewit.tech/api/search?</div>
 
 
 #### Parameters
@@ -62,12 +62,12 @@ There are six optional parameters (outlined below) that can be combined with the
 
 This example uses just the 'r' parameter to return 15 random recipes.
 
-<strong>Target URL: </strong> http://127.0.0.1:5000/api/search?r=15&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+<strong>Target URL: </strong> http://www.brewit.tech/api/search?r=15&key=8141e1d7-0253-4t6a-9853-71ua8acce027
 
 ~~~    
 function randomBeer() {
     // construct the query URL
-    const baseURL = "http://127.0.0.1:5000/api/search?"
+    const baseURL = "http://www.brewit.tech/api/search?"
     const search = "r=15";
     const key = "&key=8141e1d7-0253-4t6a-9853-71ua8acce027";
     const queryURL = baseURL + search + key;
@@ -89,12 +89,12 @@ function randomBeer() {
 This example will return recipes with 'brown ale' in the title or style,  up to the default limit of 50 results.
 
 
-<strong>Target URL: </strong> http://127.0.0.1:5000/api/search?s=brown+ale&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+<strong>Target URL: </strong> http://www.brewit.tech/api/search?s=brown+ale&key=8141e1d7-0253-4t6a-9853-71ua8acce027
 
 ~~~                    
 function simpleSearch() {
     // construct the query URL
-    const baseURL = "http://127.0.0.1:5000/api/search?"
+    const baseURL = "http://www.brewit.tech/api/search?"
     const search = "s=brown+ale";
     const key = "&key=8141e1d7-0253-4t6a-9853-71ua8acce027";
     const queryURL = baseURL + search + key;
@@ -116,11 +116,11 @@ This example will search for recipes with a minimum abv of 4 and 'brown ale in
 the title or type columns.  It will return up to 10 results, offset by 5 (results 5-14).
 
 
-<strong>Target URL: </strong> http://127.0.0.1:5000/api/search?s=brown+ale&abv-low=4&limit=10&offset=5&key=8141e1d7-0253-4t6a-9853-71ua8acce027
+<strong>Target URL: </strong> http://www.brewit.tech/api/search?s=brown+ale&abv-low=4&limit=10&offset=5&key=8141e1d7-0253-4t6a-9853-71ua8acce027
 ~~~
 function paramsSearch() {
         // construct the query URL
-        const baseURL = "http://127.0.0.1:5000/api/search?"
+        const baseURL = "http://www.brewit.tech/api/search?"
         const search = "s=brown+ale";
         const params = "&abv-low=4";
         const limit = "&limit=10";

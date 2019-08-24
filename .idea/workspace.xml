@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="226a2db2-dd1b-458e-8b83-7e5332ad7868" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/templates/api.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/api.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/brewit/templates/docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/brewit/templates/docs.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/output3.pgsql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="5525">
               <caret line="325" selection-start-line="325" selection-end-line="325" />
             </state>
           </provider>
@@ -29,20 +32,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="92" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="92" />
+            <state relative-caret-position="209">
+              <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/brewit/templates/docs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="246" selection-start-line="151" selection-end-line="246" />
+            <state relative-caret-position="205">
+              <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#section#2;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#section#7;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,12 +59,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="368">
-                <caret line="138" column="3" lean-forward="true" selection-start-line="138" selection-start-column="3" selection-end-line="138" selection-end-column="3" />
+              <first_editor relative-caret-position="98">
+                <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
               </first_editor>
               <second_editor />
             </state>
@@ -72,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/brewit/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="2006">
               <caret line="118" column="55" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="109" />
             </state>
           </provider>
@@ -141,7 +143,6 @@
       <find>wid</find>
       <find>card-</find>
       <find>card-hea</find>
-      <find>card</find>
       <find>bg-</find>
       <find>main</find>
       <find>over</find>
@@ -150,6 +151,7 @@
       <find>content-b</find>
       <find>main-bl</find>
       <find>dis</find>
+      <find>127.0.0.1:5000</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,16 +201,16 @@
         <option value="$PROJECT_DIR$/src/brewit/__init__.py" />
         <option value="$PROJECT_DIR$/src/brewit/static/css/style.css" />
         <option value="$PROJECT_DIR$/src/brewit/static/css/api.css" />
-        <option value="$PROJECT_DIR$/src/brewit/templates/api.html" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/nginx_conf/nginx.conf" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/src/Dockerfile" />
         <option value="$PROJECT_DIR$/src/brewit/env2/config.py" />
-        <option value="$PROJECT_DIR$/src/brewit/templates/docs.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/api.html" />
+        <option value="$PROJECT_DIR$/src/brewit/templates/docs.html" />
       </list>
     </option>
   </component>
@@ -224,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,6 +241,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,7 +362,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4799107" visible="true" weight="0.26022914" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4799107" weight="0.26022914" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4940048" weight="0.3993232" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -368,7 +370,7 @@
       <window_info anchor="bottom" id="SonarLint" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49330357" weight="0.2907489" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52008927" side_tool="true" visible="true" weight="0.26022914" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52008927" side_tool="true" visible="true" weight="0.26350245" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3289689" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -653,6 +655,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/output3.pgsql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5525">
+          <caret line="325" selection-start-line="325" selection-end-line="325" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/400.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="118" column="55" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -670,30 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output3.pgsql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="325" selection-start-line="325" selection-end-line="325" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/static/assets/400.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="92" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="118" column="55" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/brewit/env2/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -701,31 +703,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/brewit/templates/docs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="246" selection-start-line="151" selection-end-line="246" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#2;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#section#7;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="368">
-            <caret line="138" column="3" lean-forward="true" selection-start-line="138" selection-start-column="3" selection-end-line="138" selection-end-column="3" />
+          <first_editor relative-caret-position="98">
+            <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/api.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/brewit/templates/docs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#2;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
