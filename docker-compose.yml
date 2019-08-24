@@ -8,13 +8,13 @@ services:
 #    links:
 #      - py2
 #    ports:
-#      - "80:80"
+#      - "8080:80"
 #      - "443:443"
 #    volumes:
 #      - ./nginx_conf/nginx.conf:/etc/nginx/nginx.conf
 #      - /etc/letsencrypt/:/etc/letsencrypt/
 
-  postgres:    
+  postgres2:
     image: postgres:10
     expose:
       - 5432
@@ -24,17 +24,18 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PW}
       - POSTGRES_DB=${DB_NAME}
+    restart: always
 
   py2:
     build: ./src
     container_name: py2
     restart: always
     links:
-      - postgres
+      - postgres2
     environment:
       - APP_NAME=brewit
-    expose:
-      - 8080
-  
+    ports:
+      - "8081:8081"
+
 
 

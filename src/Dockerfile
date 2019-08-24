@@ -6,5 +6,6 @@ ADD . /app
 
 RUN pip install -r requirements.txt
 
-CMD ["uwsgi", "app.ini"]
-ENTRYPOINT ["python3", "app.py"]
+#CMD ["uwsgi", "app.ini"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8081"]
+

@@ -1,2 +1,6 @@
 .env
 .dockerignore
+output.sql
+output2.sql
+output3.sel
+output3.pgsql
