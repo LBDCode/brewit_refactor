@@ -14,20 +14,20 @@ Python, Flask, PostgreSQL, SQLAlchemy, Beautiful Soup, Flask-Login, Flask-CORS
 
 Hosted on AWS EC2.
 
-##API Documentation
+## API Documentation
 
-####Using the brewIt API
+#### Using the brewIt API
 Developers can access brewIt's database of homebrew recipes by sending a GET request to a query url that is
 comprised of the base brewIt API URL, query parameters, and a unique API key.  On success, the API will
 return a 200 OK code with the results in JSON format.  If the request fails, the API will return an
 error code.
 
-####Acquiring and using an API key
+#### Acquiring and using an API key
 To obtain an API key, sign up for a brewIt developer account - you will receive an email with your unique
 key.  Your key can also be found by logging in to brewIt and navigating to the  Account page.  Your API key
  must be appended to the query search parameters as '&key={your key}'.
 
-####Constructing a query URL
+#### Constructing a query URL
 The query URL is comprised of the base brewIt API URL, query parameters, and a unique API key.  Each query
 must include either an 's' (search) or 'r' (random) parameter, and may include any or all of the additional
 six optional parameters.
@@ -35,7 +35,7 @@ six optional parameters.
 <div><strong>base url:</strong> https://brewit.tech/api/search?</div>
 
 
-####Parameters
+#### Parameters
 Query parameters must include either the 's' (search) or 'r' (random) parameter.  The 's' parameter takes a string
 and searches for recipes with titles or beer types that contain that string.  The 'r' parameter takes an
 integer which acts as a limit - it returns random results up to the submitted query limit (or 50,
@@ -56,7 +56,7 @@ There are six optional parameters (outlined below) that can be combined with the
 | limit       | no          | integer       | Limit allows you to restrict the number of results (ex: 'limit=30').  If no limit is defined, the default limit of 50 will be used.  Use limit in combination with offset to paginate searches.            |
 | offset      | no          | integer       | Use with the default limit (50 results) or a user defined limit to paginate results (ex: 'offset=20' will return results 21-70 of the search, while 'limit=30&offset=10' will return results 11-40 of the search).            |
 
-####Examples
+#### Examples
 
 <strong>Simple Random Query:</strong>
 
